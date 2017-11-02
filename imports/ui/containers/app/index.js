@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import './styles.css'
 
+import NoteEditor from '../../components/Notes/NoteEditor'
+
 export const url = 'http://local:3000'
 const thisUrl = window.location.href
 
