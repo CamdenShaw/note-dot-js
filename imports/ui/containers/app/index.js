@@ -11,6 +11,7 @@ const thisUrl = window.location.href
 const Layout = ({ children }) => (
   <div>
     <h1>Welcome to Note.js!</h1>
+    {children}
   </div>
 )
 
