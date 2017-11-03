@@ -12,7 +12,7 @@ export const url = 'http://local:3000'
 const thisUrl = window.location.href
 
 const Layout = ({ children }) => (
-  <div class="main">
+  <div className="main">
     <HeaderContainer />
     <h1>Welcome to Note.js!</h1>
     <NotesEditor /> 
