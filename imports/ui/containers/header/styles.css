@@ -1,0 +1,13 @@
+.left {
+  position: relative;
+  left: 0;
+  height: 100%;
+  width: 50%;
+}
+
+.right {
+  position:relative;
+  right:0;
+  height:100%;
+  width: 50%;
+}
