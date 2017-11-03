@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 
-// import Login from "../imports/ui/containers/Login";
+import Login from "../imports/ui/containers/Login";
 import Layout from "../imports/ui/containers/app";
+import PrivateRouters from "./PrivateRouters";
 import createBrowserHistory from "history/createBrowserHistory";
 
 const Home = () => (
@@ -39,7 +40,7 @@ export const Routers = () => (
     <Layout>
       <Switch>
         <Route exact path="/" component={Home} />
-        {/* <Route path="/login" component={Login} /> */}
+        <Route path="/login" component={Login} />
         <Route path="/profile" component={Profile} />
         <Route path="/note" component={Note} />
         <Route path="/404" component={p404} />

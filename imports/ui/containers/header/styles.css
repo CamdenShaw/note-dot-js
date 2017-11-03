@@ -1,0 +1,17 @@
+.left {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background-color: pink;
+}
+
+.right {
+  background-color: magenta;
+  position: absolute;
+  right: 0;
+  height:100%;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
