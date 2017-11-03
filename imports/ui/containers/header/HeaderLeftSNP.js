@@ -5,7 +5,7 @@ class HeaderLeftSNP extends Component {
   state = {  }
   render() {
     return (
-      <div className="header-left">
+      <div className="header-left-snp">
         <DeleteButton />
         <DeleteButton />
       </div>
