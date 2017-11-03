@@ -18,17 +18,18 @@ const NotFound = () => <Redirect to="/404" />
 const p404 = () => <div><h2>404</h2></div>
 
 const browserHistory = createBrowserHistory()
+
 export const Routers = () => (
-      <Router history={browserHistory}>
-        <Layout>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/login" component={SignIn} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/note" component={Note} />
-            <Route path="/404" component={p404} />
-            <Route component={NotFound} />
-          </Switch>
-        </Layout>
-      </Router>
+  <Router history={ browserHistory }>
+    <Layout>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/login" component={SignIn} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/note" component={Note} />
+        <Route path="/404" component={p404} />
+        <Route component={NotFound} />
+      </Switch>
+    </Layout>
+  </Router>
 )

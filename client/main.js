@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
 import ReactDOM, { render } from 'react-dom'
+import injectTapEventPlugin from 'react-tap-event-plugin'
 import { Meteor } from 'meteor/meteor'
 import App from '../imports/ui/containers/app'
 import './main.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import createMuiTheme from 'material-ui/styles/createMuiTheme'
+import createPallet from 'material-ui/styles/createPalette'
 import {
   cyan500, cyan700,
   grey400, grey100, grey500, grey300,
   pinkA200,
   darkBlack, white, fullBlack
-} from 'material-ui/styles/colors'
+} from 'material-ui/colors'
 import { Routers } from './Routers'
 
-muiTheme = {
-  palette: {
+let muiTheme = createMuiTheme({
+  palette: createPallet({
     primary1Color: cyan500,
     primary2Color: cyan700,
     primary3Color: grey400,
@@ -28,8 +31,8 @@ muiTheme = {
     pickerHeaderColor: cyan500,
     clockCircleColor: darkBlack,
     shadowColor: fullBlack,
-  }
-}
+  })
+})
 
 class NotesJS extends Component {
   render() {
@@ -42,5 +45,6 @@ class NotesJS extends Component {
 }
 
 Meteor.startup(() => {
+  injectTapEventPlugin();
   render(Routers(), document.getElementById('root'));
 })
