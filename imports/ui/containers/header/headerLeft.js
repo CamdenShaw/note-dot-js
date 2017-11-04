@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
+import muiThemeable from 'material-ui/styles/muiThemeable';
 import NewNoteButton from '../../components/Buttons/NewNoteButton'
 import './styles.css'
 
-class HeaderLeft extends Component {
-  state = {  }
-  render() {
-    return (
-      <div className="header-left">
-        <div> adp </div>
-        <NewNoteButton />
-      </div>
-    );
-  }
+const HeaderLeft = (props) => {
+  return (
+    <div className="header-left">
+      <div style={{color: props.muiTheme.palette.accent2Color}}> adp </div>
+      <NewNoteButton />
+    </div>
+  )
 }
 
-export default HeaderLeft;
+export default muiThemeable()(HeaderLeft);

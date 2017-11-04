@@ -1,11 +1,11 @@
 import React from 'react';
-import FlatButton from 'material-ui/FlatButton'
+import RaisedButton from 'material-ui/RaisedButton'
 
 const PublishButton = props => {
   return (
-    <FlatButton secondary >
+    <RaisedButton >
       Publish
-    </FlatButton>
+    </RaisedButton>
   )
 }
 

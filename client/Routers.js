@@ -3,17 +3,11 @@ import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 import Login from "../imports/ui/containers/login";
 import Layout from "../imports/ui/containers/app";
-import PrivateRouters from "./PrivateRouters";
 import createBrowserHistory from "history/createBrowserHistory";
 
 const Home = () => (
   <div>
     <h2>Home</h2>
-  </div>
-);
-const SignIn = () => (
-  <div>
-    <h2>Sign in / Sign up</h2>
   </div>
 );
 const Profile = () => (
