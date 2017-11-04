@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import AppBar from 'material-ui/AppBar'
-import HeaderLeft from './headerLeft'
-import HeaderRight from './headerRight'
+import React, { Component } from "react";
+import AppBar from "material-ui/AppBar";
+import HeaderLeft from "./headerLeft";
+import HeaderRight from "./headerRight";
 
-import './styles.css'
+import "./styles.css";
 
-const thisUrl = window.location.href
+const thisUrl = window.location.href;
 
 class HeaderContainer extends Component {
   render() {
@@ -20,4 +20,4 @@ class HeaderContainer extends Component {
   }
 }
 
-export default HeaderContainer
+export default HeaderContainer;
