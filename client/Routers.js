@@ -3,7 +3,6 @@ import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 import Login from "../imports/ui/containers/Login";
 import Layout from "../imports/ui/containers/app";
-import PrivateRouters from "./PrivateRouters";
 import createBrowserHistory from "history/createBrowserHistory";
 
 const Home = () => (
