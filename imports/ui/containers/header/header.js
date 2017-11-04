@@ -10,16 +10,13 @@ const thisUrl = window.location.href;
 class HeaderContainer extends Component {
   render() {
     return (
-      <AppBar style={{ height: 90 }}>
-        {" "}
-        <div className="left">
-          <HeaderLeft />
-        </div>
-        <div className="right">
-          <HeaderRight />
-        </div>{" "}
-      </AppBar>
-    );
+      <AppBar
+        style={{height: 90}}
+        iconElementLeft={<HeaderLeft />}
+        iconElementRight={<HeaderRight />}
+        titleStyle={{display: 'none'}}
+      />
+    )
   }
 }
 

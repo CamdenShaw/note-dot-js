@@ -1,17 +1,14 @@
-.left {
-  position: absolute;
-  left: 0;
+.header-left {
+  display: flex;
   height: 100%;
-  width: 50%;
-  background-color: pink;
+  align-items: center;
+  padding-left: 20px;
 }
 
-.right {
-  background-color: magenta;
-  position: absolute;
-  right: 0;
-  height:100%;
-  width: 50%;
+.header-right {
   display: flex;
+  height: 100%;
+  align-items: center;
   justify-content: flex-end;
+  padding-right: 20px;
 }

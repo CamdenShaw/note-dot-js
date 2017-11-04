@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import DeleteButton from '../../components/Buttons/DeleteButton'
+import LogoutButton from '../../components/Buttons/LogoutButton'
+import ProfileButton from '../../components/Buttons/ProfileButton'
 
 class HeaderRight extends Component {
   state = {  }
   render() {
     return (
       <div className="header-right">
-        <DeleteButton />
-        <DeleteButton />
+        <ProfileButton />
+        <LogoutButton />
       </div>
     );
   }

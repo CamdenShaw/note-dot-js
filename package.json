@@ -9,7 +9,7 @@
     "bcrypt": "^1.0.3",
     "draft-js": "^0.10.4",
     "history": "^4.7.2",
-    "material-ui": "^1.0.0-beta.19",
+    "material-ui": "^0.19.4",
     "meteor-blaze": "^1.5.0",
     "meteor-node-stubs": "^0.3.2",
     "meteor-templating": "^1.3.0",

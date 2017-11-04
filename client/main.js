@@ -3,36 +3,52 @@ import ReactDOM, { render } from 'react-dom'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import { Meteor } from 'meteor/meteor'
 import App from '../imports/ui/containers/app'
-import './main.css';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import createMuiTheme from 'material-ui/styles/createMuiTheme'
-import createPallet from 'material-ui/styles/createPalette'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import {darken, fade, emphasize, lighten} from 'material-ui/utils/colorManipulator';
 import {
-  cyan500, cyan700,
-  grey400, grey100, grey500, grey300,
-  pinkA200,
-  darkBlack, white, fullBlack
-} from 'material-ui/colors'
+  lightBlueA200,
+  deepOrange500,
+  deepOrange300,
+  deepOrange700,
+  blueGrey100,
+  blueGrey200,
+  blueGrey400,
+  blueGrey500,
+  indigo50,
+  brown900,
+  teal50,
+  teal500,
+  amber50,
+  amber900,
+  faintBlack,
+  deepPurple900
+} from 'material-ui/styles/colors'
 import { Routers } from './Routers'
 
-let muiTheme = createMuiTheme({
-  palette: createPallet({
-    primary1Color: cyan500,
-    primary2Color: cyan700,
-    primary3Color: grey400,
-    accent1Color: pinkA200,
-    accent2Color: grey100,
-    accent3Color: grey500,
-    textColor: darkBlack,
-    alternateTextColor: white,
-    canvasColor: white,
-    borderColor: grey300,
-    disabledColor: darkBlack,
-    pickerHeaderColor: cyan500,
-    clockCircleColor: darkBlack,
-    shadowColor: fullBlack,
-  })
-})
+import './main.css';
+
+// export default
+muiTheme= getMuiTheme({
+  palette: {
+    primary1Color: deepOrange700,
+    primary2Color: blueGrey400,
+    primary3Color: deepOrange300,
+    accent1Color: lightBlueA200,
+    accent2Color: blueGrey100,
+    accent3Color: blueGrey500,
+    textColor: darken(amber900, 0.9),
+    alternateTextColor: amber50,
+    canvasColor: teal50,
+    borderColor: blueGrey200,
+    pickerHeaderColor: teal500,
+    shadowColor: faintBlack,
+  },
+  appBar: {
+    color: darken(deepPurple900, 0.6)
+  }
+});
 
 class NotesJS extends Component {
   render() {
@@ -45,6 +61,5 @@ class NotesJS extends Component {
 }
 
 Meteor.startup(() => {
-  injectTapEventPlugin();
-  render(Routers(), document.getElementById('root'));
+  render(<NotesJS />, document.getElementById('root'));
 })
