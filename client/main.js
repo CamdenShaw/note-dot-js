@@ -4,35 +4,20 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import { Meteor } from 'meteor/meteor'
 import App from '../imports/ui/containers/app'
 import './main.css';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import createMuiTheme from 'material-ui/styles/createMuiTheme'
-import createPallet from 'material-ui/styles/createPalette'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import {
-  cyan500, cyan700,
-  grey400, grey100, grey500, grey300,
-  pinkA200,
-  darkBlack, white, fullBlack
-} from 'material-ui/colors'
+  lightBlue,
+  red,
+  deepOrange,
+  blueGrey900,
+  white
+} from 'material-ui/styles/colors'
 import { Routers } from './Routers'
 
-let muiTheme = createMuiTheme({
-  palette: createPallet({
-    primary1Color: cyan500,
-    primary2Color: cyan700,
-    primary3Color: grey400,
-    accent1Color: pinkA200,
-    accent2Color: grey100,
-    accent3Color: grey500,
-    textColor: darkBlack,
-    alternateTextColor: white,
-    canvasColor: white,
-    borderColor: grey300,
-    disabledColor: darkBlack,
-    pickerHeaderColor: cyan500,
-    clockCircleColor: darkBlack,
-    shadowColor: fullBlack,
-  })
-})
+// export default
+const muiTheme = getMuiTheme(getMuiTheme(darkBaseTheme));
 
 class NotesJS extends Component {
   render() {
@@ -45,6 +30,5 @@ class NotesJS extends Component {
 }
 
 Meteor.startup(() => {
-  injectTapEventPlugin();
-  render(Routers(), document.getElementById('root'));
+  render(<NotesJS />, document.getElementById('root'));
 })

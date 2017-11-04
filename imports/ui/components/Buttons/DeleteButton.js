@@ -1,28 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
-import Button from 'material-ui/Button'
-
-const styles = theme => ({
-  button: {
-    margin: theme.spacing.unit,
-  },
-  input: {
-    display: 'none',
-  },
-});
+import FlatButton from 'material-ui/FlatButton'
 
 const DeleteButton = props => {
-  const { classes } = props
   return (
-    <Button raised color="primary" className={classes.button}>
-      Primary
-    </Button>
+    <FlatButton secondary >
+      Delete
+    </FlatButton>
   )
 }
 
-DeleteButton.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-
-export default withStyles(styles)(DeleteButton);
+export default DeleteButton;

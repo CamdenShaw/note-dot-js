@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import DeleteButton from '../../components/Buttons/DeleteButton'
+import NewNoteButton from '../../components/Buttons/NewNoteButton'
+import './styles.css'
 
 class HeaderLeft extends Component {
   state = {  }
   render() {
     return (
       <div className="header-left">
-        <DeleteButton />
-        <DeleteButton />
+        <div> adp </div>
+        <NewNoteButton />
       </div>
     );
   }

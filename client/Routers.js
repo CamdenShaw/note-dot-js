@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 
-import Login from "../imports/ui/containers/Login";
+import Login from "../imports/ui/containers/login";
 import Layout from "../imports/ui/containers/app";
 import PrivateRouters from "./PrivateRouters";
 import createBrowserHistory from "history/createBrowserHistory";
