@@ -16,12 +16,6 @@ const Profile = () => (
     <h2>Profile</h2>
   </div>
 );
-// const Note = () => (
-//   <div>
-//     <h2>Single Note</h2>
-//     <NoteEditor />
-//   </div>
-// );
 const NotFound = () => <Redirect to="/404" />;
 const p404 = () => (
   <div>
