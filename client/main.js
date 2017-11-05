@@ -30,9 +30,9 @@ import { Routers } from './Routers'
 import './main.css';
 
 // export default
-muiTheme= getMuiTheme({
+const muiTheme= getMuiTheme({
   palette: {
-    primary1Color: deepOrange700,
+    primary1Color: deepOrange500,
     primary2Color: blueGrey400,
     primary3Color: deepOrange300,
     accent1Color: lightBlueA200,

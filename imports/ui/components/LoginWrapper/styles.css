@@ -1,3 +1,7 @@
+.login-container {
+  font-family: Roboto, sans-serif;
+}
+
 .app-wrapper {
   align-items: center;
   display: flex;
@@ -105,8 +109,8 @@
 
 [id="login-buttons-logout"],
 .login-button-form-submit {
-  background-color: #a071b8;
-  color: white;
+  background-color: #40c4ff;
+  color: #190b00;
   display: block;
   padding: 0.25rem 0.5rem;
   text-align: center;
@@ -138,5 +142,5 @@
 }
 
 #login-buttons {
-  background: black;
+  background: #130a3a;
 }
