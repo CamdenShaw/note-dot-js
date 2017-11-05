@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Editor, EditorState } from 'draft-js';
+import './styles.css'
 
 class NotesEditor extends Component {
     constructor (props) {

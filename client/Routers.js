@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 import Login from "../imports/ui/containers/login";
-import NoteEditor from '../imports/ui/containers/notes/'
+import Note from '../imports/ui/containers/notes/'
 import Layout from "../imports/ui/containers/app";
 import createBrowserHistory from "history/createBrowserHistory";
 
@@ -16,12 +16,12 @@ const Profile = () => (
     <h2>Profile</h2>
   </div>
 );
-const Note = () => (
-  <div>
-    <h2>Single Note</h2>
-    <NoteEditor />
-  </div>
-);
+// const Note = () => (
+//   <div>
+//     <h2>Single Note</h2>
+//     <NoteEditor />
+//   </div>
+// );
 const NotFound = () => <Redirect to="/404" />;
 const p404 = () => (
   <div>

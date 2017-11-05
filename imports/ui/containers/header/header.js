@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AppBar from "material-ui/AppBar";
 import HeaderLeft from "./headerLeft";
-import HeaderRight from "./headerRIght";
+import HeaderRight from "./headerRight";
 
 import "./styles.css";
 

@@ -13,7 +13,6 @@ const thisUrl = window.location.href;
 const Layout = ({ children }) => (
   <div className="main">
     <HeaderContainer />
-    <NotesEditor />
     {children}
   </div>
 );
