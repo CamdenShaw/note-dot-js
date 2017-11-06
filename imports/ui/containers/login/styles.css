@@ -1,1 +1,44 @@
+.login-container {
+  width: 700px;
+  margin: 20px auto;
+}
 
+.login-container span {
+  height: 100%;
+}
+
+.login-form-sign-in, .login-form-create-account, .login-form-forgot-password {
+  padding: 10px;
+}
+
+.accounts-dialog {
+  margin: 0 auto;
+  position: relative;
+}
+
+.login-close-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.login-form {
+  padding: 50px;
+}
+
+.login-form div {
+  margin: 25px 0;
+}
+
+
+.additional-link {
+  text-decoration: none;
+  background-color: #40c4ff;
+  padding: 0 14px;
+  border-radius: 2px;
+}
+
+.additional-link:hover {
+  background-color: rgb(91, 222, 255);
+  cursor: pointer;
+}

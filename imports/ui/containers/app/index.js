@@ -14,9 +14,9 @@ export const url = "http://local:3000";
 const thisUrl = window.location.href;
 
 const Layout = ({ children }) => (
-  <div className="header">
+  <div className="main">
     <HeaderContainer />
-    <div className="main">{children}</div>
+    <div className="content">{children}</div>
   </div>
 );
 

@@ -1,11 +1,14 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
+import { Link } from 'react-router-dom'
 
 const LogoutButton = props => {
   return (
-    <RaisedButton >
-      Logout
-    </RaisedButton>
+    <Link to="/login">
+      <RaisedButton >
+        Logout
+      </RaisedButton>
+    </Link>
   )
 }
 
