@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { muiTheme } from '../../config/theme';
-import { Routers } from '../../../../client/Routers';
+import { Routers } from '../../../startup/client/routes';
 
 import HeaderContainer from "../header/header";
 

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 
-import Login from "../imports/ui/containers/login";
-import Note from '../imports/ui/containers/notes/'
-import Layout from "../imports/ui/containers/app";
+import Login from "../../ui/containers/login/";
+import Note from '../../ui/containers/notes/'
+import Layout from "../../ui/containers/app";
 import createBrowserHistory from "history/createBrowserHistory";
 
 const Home = () => (
