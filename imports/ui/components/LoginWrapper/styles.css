@@ -51,6 +51,7 @@
   border-bottom: 1px solid #8f8f8f;
   color: #8f8f8f;
   font-size: 0.9rem;
+  width: 490px;
 }
 
 .accounts-dialog input:focus {
@@ -79,19 +80,6 @@
   margin-top: 0.5rem;
 }
 
-[id="signup-link"],
-[id="forgot-password-link"],
-[id="back-to-login-link"] {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-[id="signup-link"]:hover,
-[id="forgot-password-link"]:hover,
-[id="back-to-login-link"]:hover {
-  color: #4ccbb0;
-}
-
 [id="login-buttons-password"],
 [id="login-buttons-open-change-password"],
 [id="login-buttons-logout"] {
@@ -114,11 +102,12 @@
   display: block;
   padding: 0.25rem 0.5rem;
   text-align: center;
+  border-radius: 2px;
 }
 
 [id="login-buttons-logout"]:hover,
 .login-button-form-submit:hover {
-  background-color: #4ccbb0;
+  background-color: #70deff;
 }
 
 [id="login-email-label-and-input"],
