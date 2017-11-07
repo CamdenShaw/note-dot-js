@@ -1,13 +1,17 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import LoginWrapper from "../../components/LoginWrapper";
-import './styles.css'
+import "./styles.css";
 
 class Login extends Component {
   render() {
-    return (
+    console.log(Meteor.userId());
+    return Meteor.userId() === null ? (
       <div className="login-container">
         <LoginWrapper />
       </div>
+    ) : (
+      <Redirect push to="/" />
     );
   }
 }
