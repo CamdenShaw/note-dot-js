@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import LogoutButton from '../../components/Buttons/LogoutButton'
-import ProfileButton from '../../components/Buttons/ProfileButton'
+import React, { Component } from "react";
+import LogoutButton from "../../components/Buttons/LogoutButton";
+import ProfileButton from "../../components/Buttons/ProfileButton";
 
 class HeaderRight extends Component {
-  state = {  }
+  state = {};
   render() {
     return (
       <div className="header-right">
