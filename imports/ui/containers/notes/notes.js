@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from '../../components/NotesModal';
 
 import NotesEditor from '../../components/Notes/NoteEditor'
+import ModalHeader from '../../components/NotesModal/ModalHeader'
 class Note extends Component {
     constructor(props) {
         super(props);
@@ -23,7 +24,7 @@ class Note extends Component {
                 </button>
                 <Modal show={this.state.isOpen}
                     onClose={this.toggleModal}>
-                    Notes content
+                    
                     <NotesEditor />
                 </Modal>
             </div>
