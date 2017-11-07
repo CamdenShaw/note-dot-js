@@ -5,9 +5,6 @@ import { MuiThemedApp } from '../imports/ui/containers/app'
 
 import './main.css';
 
-// export default
-
-
 Meteor.startup(() => {
   render(<MuiThemedApp />, document.getElementById('root'));
 })

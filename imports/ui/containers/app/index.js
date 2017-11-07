@@ -7,17 +7,18 @@ import { Routers } from "../../../startup/client/routes";
 import { Notes } from "../../../api/notes";
 
 import HeaderContainer from "../header/header";
+import { thisUrl } from '../header/header'
 
 import "./styles.css";
 
 import NotesEditor from "../../components/Notes/NoteEditor";
 
-export const url = "http://local:3000";
-const thisUrl = window.location.href;
+export const url = `http://localhost:3000`;
+const loginUrl = `${url}/login`
 
 export const Layout = ({ children }) => (
   <div className="main">
-    <HeaderContainer />
+    { thisUrl !== loginUrl && <HeaderContainer /> }
     <div className="content">{children}</div>
   </div>
 );
