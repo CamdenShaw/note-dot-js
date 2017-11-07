@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Modal from '../../components/Notes/NotesModal';
+import Modal from '../../components/NotesModal';
 
 import NotesEditor from '../../components/Notes/NoteEditor'
 class Note extends Component {
