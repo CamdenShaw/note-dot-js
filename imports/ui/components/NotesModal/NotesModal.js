@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ModalHeader from './ModalHeader'
 
 class Modal extends Component {
     render() {
@@ -20,18 +21,18 @@ class Modal extends Component {
           const modalStyle = {
             backgroundColor: '#fff',
             borderRadius: 5,
-            maxWidth: 500,
-            minHeight: 300,
+            maxWidth: 600,
+            minHeight: 350,
             margin: '0 auto',
             padding: 30,
-            marginTop: 100 
+            marginTop: 90 
           };
 
         return (
             <div className="backdrop" style={backdropStyle}>
                 <div className="modal" style={modalStyle}>
+                    {<ModalHeader />}
                     {this.props.children}
-
                     <div className="footer">
                         <button onClick={this.props.onClose}>Close</button>
                     </div>

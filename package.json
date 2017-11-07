@@ -9,6 +9,7 @@
     "bcrypt": "^1.0.3",
     "chain-function": "^1.0.0",
     "draft-js": "^0.10.4",
+    "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "material-ui": "^0.19.4",
     "meteor-blaze": "^1.5.0",

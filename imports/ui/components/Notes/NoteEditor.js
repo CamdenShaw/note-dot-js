@@ -75,7 +75,7 @@ class NotesEditor extends Component {
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChange}
             onTab={this.onTab}
-            placeholder="Tell a story..."
+            placeholder="Write to your heart's content..."
             ref="editor"
             spellCheck={true}
           />
