@@ -6,9 +6,11 @@ import './styles.css'
 
 const FiltersContainer = (props) => {
   return (
-    <div style={{
-      backgroundColor: lighten(props.muiTheme.palette.alternateTextColor, 0.8),
-      color: props.muiTheme.palette.textColor}}
+    <div 
+      style={{
+        backgroundColor: lighten(props.muiTheme.palette.alternateTextColor, 0.8),
+        color: props.muiTheme.palette.textColor
+      }}
       className="filters-container"
     >
       <div>FILTERS</div>

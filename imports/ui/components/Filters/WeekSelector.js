@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TopicSelector extends Component {
+class WeekSelector extends Component {
   state = {  }
   render() {
     return (
@@ -9,4 +9,4 @@ class TopicSelector extends Component {
   }
 }
 
-export default connect(, )(TopicSelector);
+export default WeekSelector;
