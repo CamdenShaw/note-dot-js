@@ -4,13 +4,14 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "../../ui/containers/login";
 import Editor from "../../ui/containers/notes/";
 import PrivateRoute from "../../ui/components/PrivateRoute";
+import Home from "../../ui/containers/notes/notesList"
 
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
+// const Home = () => (
+//   <div>
+//     <h2>Home</h2>
+//   </div>
+// );
 const Profile = () => (
   <div>
     <h2>Profile</h2>

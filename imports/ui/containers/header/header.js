@@ -7,13 +7,12 @@ import { url } from "../app"
 
 import "./styles.css";
 
-export let thisUrl = window.location.href;
-
 class HeaderContainer extends Component {
+
   render() {
-    console.log(thisUrl)
     const profileUrl = `${url}/profile`
     const noteUrl = `${url}/note`
+    console.log('header.js render', thisUrl)
     return (
       <AppBar
         style={{height: 90}}

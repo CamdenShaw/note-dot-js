@@ -4,21 +4,18 @@ import './styles.css'
 
 import HeaderContainer from "../../containers/header/header";
 import Filters from "../../containers/filters/"
-import { thisUrl } from '../../containers/header/header'
-
 
 export const url = `http://localhost:3000`;
 const loginUrl = `${url}/login`;
 const noteUrl = `${url}/note`;
 
 const Layout = ({ children }) => {
+  thisUrl = window.location.href
   return (
     <div className="app-wrapper">
-        <div className="app-header">
-            { thisUrl !== loginUrl && <HeaderContainer /> }
-        </div>
+      { thisUrl !== loginUrl && <HeaderContainer thisUrl={thisUrl} /> }
       <div className="app-content">
-        { thisUrl !== loginUrl && thisUrl !== noteUrl && <Filters /> }
+        { thisUrl !== loginUrl && thisUrl !== noteUrl && <Filters thisUrl={thisUrl} /> }
         {children}
       </div>
       <div className="app-footer">

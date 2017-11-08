@@ -4,7 +4,6 @@ import ProfileButton from "../../components/Buttons/ProfileButton";
 import NotesListButton from "../../components/Buttons/NotesListButton";
 import NoteButtons from "../note-buttons";
 import { url } from "../app";
-import { thisUrl } from "./header";
 
 class HeaderRight extends Component {
   render() {

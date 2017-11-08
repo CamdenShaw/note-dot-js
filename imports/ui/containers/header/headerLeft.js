@@ -4,13 +4,9 @@ import NewNoteButton from "../../components/Buttons/NewNoteButton";
 import "./styles.css";
 
 import { url } from "../app";
-import { thisUrl } from "./header";
 
 const HeaderLeft = props => {
   const profileUrl = `${url}/profile`;
-  {
-    console.log(thisUrl, profileUrl);
-  }
   return (
     <div
       className="header-left"

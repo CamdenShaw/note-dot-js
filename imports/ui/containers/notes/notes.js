@@ -16,6 +16,11 @@ class Note extends Component {
         });
       }
 
+      componentWillMount() {
+          this.props.thisUrl = window.location.href
+          console.log('note render', this.props.thisUrl)
+      }
+
     render() {
         return (
             <div>
