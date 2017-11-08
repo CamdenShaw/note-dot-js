@@ -4,4 +4,6 @@
   position: relative;
   left: -2.5vw;
   background: white;
+  border-right: 2px solid navy;
+  max-height: 98vh;
 }
