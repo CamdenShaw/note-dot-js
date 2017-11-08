@@ -3,7 +3,7 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 
 import './styles.css'
 
-const FiltersContainer  Component {
+const FiltersContainer = () => {
   render() {
     return (
       <div className="filters-container">
@@ -13,4 +13,4 @@ const FiltersContainer  Component {
   }
 }
 
-export default FiltersContainer;
+export default muiThemable()(FiltersContainer);
