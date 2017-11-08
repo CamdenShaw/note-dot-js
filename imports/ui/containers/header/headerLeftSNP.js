@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import DeleteButton from '../../components/Buttons/DeleteButton'
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
@@ -15,8 +15,4 @@ const HeaderLeftSNP = (props) => (
   </form>
 );
 
-<<<<<<< HEAD:imports/ui/containers/header/HeaderLeftSNP.js
 export default muiThemeable()(HeaderLeftSNP);
-=======
-export default HeaderLeftSNP;
->>>>>>> 49947ef76918a81ae73a70de0370cd0e19237d12:imports/ui/containers/header/headerLeftSNP.js

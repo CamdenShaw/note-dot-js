@@ -22,7 +22,6 @@ const p404 = () => (
     <h2>404</h2>
   </div>
 );
-
 const browserHistory = createBrowserHistory();
 
 export const Routers = () => (
