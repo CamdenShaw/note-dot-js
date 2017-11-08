@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const NotesListButton = props => {
   return (
     <Link to="/" >
-      <RaisedButton >
+      <RaisedButton className="notes-list" >
         Notes List
       </RaisedButton>
     </Link>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const LogoutButton = props => {
   return (
     <Link to="/login">
-      <RaisedButton
+      <RaisedButton className="logout"
         onClick={() => {
           Meteor.logout();
         }}

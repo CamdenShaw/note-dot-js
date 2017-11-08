@@ -18,7 +18,7 @@ class HeaderRight extends Component {
         ) : (
           <ProfileButton />
         )}
-        {thisUrl === noteUrl ? <NoteButtons /> : <LogoutButton />}
+        {thisUrl === noteUrl ? <div className="note-buttons-container" ><NoteButtons R={false} /> <NoteButtons R={true} /></div> : <LogoutButton />}
       </div>
     );
   }

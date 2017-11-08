@@ -3,7 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 const SaveButton = props => {
   return (
-    <RaisedButton >
+    <RaisedButton className="save" >
       Save
     </RaisedButton>
   )

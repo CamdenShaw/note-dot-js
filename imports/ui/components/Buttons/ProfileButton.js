@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const ProfileButton = props => {
   return (
     <Link to='/profile'>
-      <RaisedButton secondary >
+      <RaisedButton className="profile" secondary >
         Profile
       </RaisedButton>
     </Link>

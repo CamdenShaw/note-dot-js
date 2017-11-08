@@ -3,7 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 const PublishButton = props => {
   return (
-    <RaisedButton >
+    <RaisedButton className="publish" >
       Publish
     </RaisedButton>
   )
