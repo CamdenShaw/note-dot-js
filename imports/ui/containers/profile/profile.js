@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import LoginWrapper from "../../components/LoginWrapper";
 import "./styles.css";
 
-class Login extends Component {
+class Profile extends Component {
   render() {
     this.props.thisUrl = window.location.href;
     console.log("login render", this.props.thisUrl);
     return (
-      <div className="login-container">
-        <LoginWrapper />
+      <div className="profile-container">
+        <p>Profile</p>
       </div>
     );
   }
 }
 
-export default Login;
+export default Profile;
