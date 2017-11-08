@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 class NotesListContainer extends Component {
-  state = {  }
+  state = {};
   render() {
-    return (
-      <p>HOME</p>
-    );
+    return Meteor.userId() ? <p>HOME</p> : <Redirect to="/login" />;
   }
 }
 
