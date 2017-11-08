@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 
-import Login from "../../ui/containers/login/";
-import Note from '../../ui/containers/notes/'
+import Login from "../../ui/containers/login";
+import Editor from "../../ui/containers/notes/";
 import Layout from "../../ui/containers/app";
+import PrivateRoute from "../../ui/components/PrivateRoute";
 import createBrowserHistory from "history/createBrowserHistory";
 
 const Home = () => (
@@ -16,6 +17,7 @@ const Profile = () => (
     <h2>Profile</h2>
   </div>
 );
+
 const NotFound = () => <Redirect to="/404" />;
 const p404 = () => (
   <div>
@@ -29,9 +31,9 @@ export const Routers = () => (
     <Layout>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
+        <PrivateRoute path="/login" component={Login} />
         <Route path="/profile" component={Profile} />
-        <Route path="/note" component={Note} />
+        <Route path="/note" component={Editor} />
         <Route path="/404" component={p404} />
         <Route component={NotFound} />
       </Switch>
