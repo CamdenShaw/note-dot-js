@@ -1,7 +1,7 @@
 import { Meteor } from "meteor/meteor";
 import { Accounts } from "meteor/accounts-base";
 
-import { Notes } from "../../../imports/api/notes";
+// import { Notes } from "../../../imports/api/notes";
 
 Meteor.startup(() => {
   let user = {};
