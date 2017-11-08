@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import Login from "../../ui/containers/login";
 import Editor from "../../ui/containers/notes/";
-import Layout from "../../ui/containers/app";
 import PrivateRoute from "../../ui/components/PrivateRoute";
-import createBrowserHistory from "history/createBrowserHistory";
+
 
 const Home = () => (
   <div>
@@ -24,19 +23,18 @@ const p404 = () => (
     <h2>404</h2>
   </div>
 );
-const browserHistory = createBrowserHistory();
 
-export const Routers = () => (
-  <Router history={browserHistory}>
-    <Layout>
-      <Switch>
+
+const Routes = () => (
+ 
+    <Switch>
+        <Route path="/login" component={Login} />
         <Route exact path="/" component={Home} />
-        <PrivateRoute path="/login" component={Login} />
         <Route path="/profile" component={Profile} />
         <Route path="/note" component={Editor} />
-        <Route path="/404" component={p404} />
-        <Route component={NotFound} />
-      </Switch>
-    </Layout>
-  </Router>
+        <Route path="*" component={p404} />
+        <Route path="*" component={NotFound} />
+    </Switch>
 );
+
+export default Routes
