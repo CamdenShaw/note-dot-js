@@ -27,7 +27,7 @@ export const muiTheme= getMuiTheme({
     accent1Color: lightBlueA200,
     accent2Color: blueGrey100,
     accent3Color: blueGrey500,
-    textColor: darken(amber900, 0.8),
+    textColor: darken(amber900, 0.6),
     alternateTextColor: amber100,
     canvasColor: teal50,
     borderColor: blueGrey200,
