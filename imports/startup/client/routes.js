@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "../../ui/containers/login";
 import Editor from "../../ui/containers/notes/";
 import PrivateRoute from "../../ui/components/PrivateRoute";
-import createBrowserHistory from "history/createBrowserHistory";
+
 
 const Home = () => (
   <div>
@@ -24,7 +24,9 @@ const p404 = () => (
   </div>
 );
 
-const Routes = (props) => (
+
+const Routes = () => (
+ 
     <Switch>
         <Route path="/login" component={Login} />
         <Route exact path="/" component={Home} />

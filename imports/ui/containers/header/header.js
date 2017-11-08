@@ -11,6 +11,7 @@ export let thisUrl = window.location.href;
 
 class HeaderContainer extends Component {
   render() {
+    console.log(thisUrl)
     const profileUrl = `${url}/profile`
     const noteUrl = `${url}/note`
     return (

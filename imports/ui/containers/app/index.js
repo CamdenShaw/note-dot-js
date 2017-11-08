@@ -7,6 +7,8 @@ import { muiTheme } from "../../config/theme";
 import Routes from "../../../startup/client/routes";
 import { Notes } from "../../../api/notes";
 
+
+
 import "./styles.css";
 
 import Layout from '../../components/Layout/'
@@ -14,6 +16,8 @@ import Layout from '../../components/Layout/'
 
 export const url = `http://localhost:3000`;
 const loginUrl = `${url}/login`
+const noteUrl = `${url}/note`
+
 
 
 // const NoteJS = () => (

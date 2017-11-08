@@ -1,0 +1,7 @@
+.filters-container {
+  width: 15vw;
+  min-width: 200px;
+  position: relative;
+  left: -2.5vw;
+  background: white;
+}

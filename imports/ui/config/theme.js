@@ -3,9 +3,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import {darken, fade, emphasize, lighten} from 'material-ui/utils/colorManipulator'
 import {
   lightBlueA200,
-  deepOrange500,
+  deepOrange400,
   deepOrange300,
-  deepOrange700,
   blueGrey100,
   blueGrey200,
   blueGrey400,
@@ -14,7 +13,7 @@ import {
   brown900,
   teal50,
   teal500,
-  amber50,
+  amber100,
   amber900,
   faintBlack,
   deepPurple900
@@ -22,14 +21,14 @@ import {
 
 export const muiTheme= getMuiTheme({
   palette: {
-    primary1Color: deepOrange500,
+    primary1Color: darken(deepOrange300, 0.1),
     primary2Color: blueGrey400,
     primary3Color: deepOrange300,
     accent1Color: lightBlueA200,
     accent2Color: blueGrey100,
     accent3Color: blueGrey500,
-    textColor: darken(amber900, 0.9),
-    alternateTextColor: amber50,
+    textColor: darken(amber900, 0.6),
+    alternateTextColor: amber100,
     canvasColor: teal50,
     borderColor: blueGrey200,
     pickerHeaderColor: teal500,

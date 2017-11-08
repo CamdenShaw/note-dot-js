@@ -3,10 +3,9 @@ body {
   margin: 0;
   background-color: rgb(0, 107, 107);
   color: #190b00;
+  min-height: 100vh;
 }
 
-.content {
-  margin: auto auto 0;
-  min-height: 75vh;
-  max-width: 95vw;
+#root {
+  min-height: 100%;
 }
