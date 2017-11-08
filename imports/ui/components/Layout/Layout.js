@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import './styles.css'
 
 import HeaderContainer from "../../containers/header/header";
 import Filters from "../../containers/filters/"
@@ -13,7 +14,7 @@ const noteUrl = `${url}/note`;
 const Layout = ({ children }) => {
   return (
     <div className="app-wrapper">
-        <div className="appHeader">
+        <div className="app-header">
             { thisUrl !== loginUrl && <HeaderContainer /> }
         </div>
       <div className="app-content">
