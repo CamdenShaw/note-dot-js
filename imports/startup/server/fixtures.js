@@ -9,7 +9,10 @@ Meteor.startup(() => {
   if (Meteor.users.find().count() === 0) {
     user = Accounts.createUser({
       email: "davidhilscher@gmail.com",
-      password: "password"
+      password: "password",
+      profile: {
+        fullname: 'David Hilscher'
+      }
     });
   } else {
     user = `${Meteor.users.findOne()._id}`;
