@@ -6,14 +6,13 @@ class ModalHeader extends Component {
   render() {
     return (
       <div>
-      <div className="header-wrapper">
-        <div className="inputs" />
-        <div className="buttons">
-          </div>
+        <div className="header-wrapper">
+          <div className="inputs" />
+          <div className="buttons" />
         </div>
       </div>
     );
   }
 }
 
-export default ModalHeader
+export default ModalHeader;

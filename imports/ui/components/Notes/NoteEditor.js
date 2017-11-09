@@ -2,19 +2,23 @@ import React, { Component } from "react";
 import { Editor, EditorState, RichUtils } from "draft-js";
 import "./styles.css";
 
-import StyleButtons from './EditorButton';
+import StyleButtons from "./EditorButton";
 
-import { BlockStyleControls, InlineStyleControls, getBlockStyle, styleMap } from './EditorButton';
+import {
+  BlockStyleControls,
+  InlineStyleControls,
+  getBlockStyle,
+  styleMap
+} from "./EditorButton";
 
 function resizeEditor() {
-  editorRoot =  document.querySelector(".RichEditor-root")
-  modal =  document.querySelector(".modal")
-  editorContent =  document.querySelector(".RichEditor-editor")
-  modalHeight =  modal.clientHeight
-  rootHeight = modalHeight - 105
-  editorRoot.style.height = `${rootHeight}px`
-  editorContent.style.height = `${rootHeight - 60}px`
-  console.log(modal, modalHeight, editorRoot, editorRoot.style.height, editorContent.style.height)
+  editorRoot = document.querySelector(".RichEditor-root");
+  modal = document.querySelector(".modal");
+  editorContent = document.querySelector(".RichEditor-editor");
+  modalHeight = modal.clientHeight;
+  rootHeight = modalHeight - 105;
+  editorRoot.style.height = `${rootHeight}px`;
+  editorContent.style.height = `${rootHeight - 60}px`;
 }
 
 class NotesEditor extends Component {
@@ -37,12 +41,12 @@ class NotesEditor extends Component {
     }
     return false;
   }
-  
+
   onTab(e) {
     const maxDepth = 4;
     this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
   }
-  
+
   toggleBlockType(blockType) {
     this.onChange(RichUtils.toggleBlockType(this.state.editorState, blockType));
   }
@@ -51,10 +55,10 @@ class NotesEditor extends Component {
       RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle)
     );
   }
-  
-    componentDidMount() {
-      resizeEditor()
-    }
+
+  componentDidMount() {
+    resizeEditor();
+  }
 
   render() {
     const { editorState } = this.state;
@@ -75,8 +79,8 @@ class NotesEditor extends Component {
     }
 
     window.addEventListener("resize", () => {
-      resizeEditor()
-    })
+      resizeEditor();
+    });
 
     return (
       <div className="RichEditor-root">
