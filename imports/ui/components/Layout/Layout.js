@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   thisUrl = window.location.href
   return (
     <div className="app-wrapper">
-      { thisUrl !== loginUrl && <HeaderContainer thisUrl={thisUrl} /> }
+      { thisUrl !== loginUrl && thisUrl !== noteUrl && <HeaderContainer thisUrl={thisUrl} /> }
       <div className="app-content">
         { thisUrl !== loginUrl && thisUrl !== noteUrl && <Filters thisUrl={thisUrl} /> }
         {children}

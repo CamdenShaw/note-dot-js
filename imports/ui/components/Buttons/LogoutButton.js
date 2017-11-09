@@ -2,10 +2,10 @@ import React from "react";
 import RaisedButton from "material-ui/RaisedButton";
 import { Link } from "react-router-dom";
 
-const LogoutButton = props => {
+const LogoutButton = (height, props) => {
   return (
     <Link to="/login">
-      <RaisedButton
+      <RaisedButton className="logout" style={{height: height.height}} buttonStyle={{lineHeight: height.height}}
         onClick={() => {
           Meteor.logout();
         }}

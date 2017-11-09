@@ -4,3 +4,17 @@
   padding: 10px;
   height: 90px;
 }
+
+.notes-list, .notes-list button, .notes-list button div, .notes-list button div div,
+.logout, .logout button, .logout button div, .logout button div div,
+.profile, .profile button, .profile button div, .profile button div div {
+  margin: 1px;
+}
+
+.publish, .publish button, .publish button div, .publish button div div,
+.save, .save button, .save button div, .save button div div,
+.delete, .delete button, .delete button div, .delete button div div {
+  height: 25px !important;
+  line-height: 25px;
+  margin: 1px;
+}

@@ -3,11 +3,13 @@ import Modal from '../../components/NotesModal';
 
 import NotesEditor from '../../components/Notes/NoteEditor'
 import ModalHeader from '../../components/NotesModal/ModalHeader'
+import HeaderContainer from '../header/header'
+
 class Note extends Component {
     constructor(props) {
         super(props);
     
-        this.state = { isOpen: false };
+        this.state = { isOpen: true };
       }
 
       toggleModal = () => {
@@ -22,14 +24,17 @@ class Note extends Component {
       }
 
     render() {
+        thisUrl = window.location.href
         return (
             <div>
                 <button onClick={this.toggleModal}>
                     New Note
                 </button>
-                <Modal show={this.state.isOpen}
-                    onClose={this.toggleModal}>
-                    
+                <Modal
+                    show={this.state.isOpen}
+                    onClose={this.toggleModal}
+                >
+                    <HeaderContainer thisUrl={thisUrl}/>
                     <NotesEditor />
                 </Modal>
             </div>
