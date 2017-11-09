@@ -7,11 +7,19 @@ import { Notes } from '../../../api/notes';
 
 class NotesListContainer extends Component {
   state = {};
+  
   render() {
+    console.log(this.props)
     return (
-      Meteor.userId() ? <p>HOME</p> : <Redirect to="/login" />
+      Meteor.userId() ? <div className="notesContainer">
+      {this.props.notes.map((note, index) => (
+        <SingleNote
+          key={index}
+          item={note} />
+      ))}
+    </div> : <Redirect to="/login" />
 
-      // <divd>
+      // <div className="notesContainer">
       //   {this.props.notes.map((note, index) => (
       //     <SingleNote
       //       key={index}
