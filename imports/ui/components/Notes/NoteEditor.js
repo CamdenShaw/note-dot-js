@@ -6,6 +6,16 @@ import StyleButtons from './EditorButton';
 
 import { BlockStyleControls, InlineStyleControls, getBlockStyle, styleMap } from './EditorButton';
 
+function resizeEditor() {
+  editorRoot =  document.querySelector(".RichEditor-root")
+  modal =  document.querySelector(".modal")
+  editorContent =  document.querySelector(".RichEditor-editor")
+  modalHeight =  modal.clientHeight
+  rootHeight = modalHeight - 105
+  editorRoot.style.height = `${rootHeight}px`
+  editorContent.style.height = `${rootHeight - 60}px`
+  console.log(modal, modalHeight, editorRoot, editorRoot.style.height, editorContent.style.height)
+}
 
 class NotesEditor extends Component {
   constructor(props) {
@@ -41,12 +51,18 @@ class NotesEditor extends Component {
       RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle)
     );
   }
+  
+    componentDidMount() {
+      resizeEditor()
+    }
+
   render() {
     const { editorState } = this.state;
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.
     let className = "RichEditor-editor";
     var contentState = editorState.getCurrentContent();
+
     if (!contentState.hasText()) {
       if (
         contentState
@@ -57,6 +73,11 @@ class NotesEditor extends Component {
         className += " RichEditor-hidePlaceholder";
       }
     }
+
+    window.addEventListener("resize", () => {
+      resizeEditor()
+    })
+
     return (
       <div className="RichEditor-root">
         <BlockStyleControls
