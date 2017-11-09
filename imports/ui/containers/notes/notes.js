@@ -10,9 +10,19 @@ import HeaderContainer from "../header/header";
 class Note extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { isOpen: true };
+    this.state = {
+      isOpen: true,
+      editorValue: ""
+    };
   }
+
+  editorValue = text => {
+    const noteValue = text;
+    // this.setState({
+    //   editorValue: ""
+    // });
+    console.log(text);
+  };
 
   toggleModal = () => {
     this.setState({
@@ -20,9 +30,30 @@ class Note extends Component {
     });
   };
 
+  addNote(event) {
+    event.preventDefault();
+
+    if (this.noteInput.value) {
+      Meteor.call("notes.addNote", this.noteInput.value);
+
+      this.noteInput.value = "";
+      console.log(this.noteInput.value);
+    }
+  }
+
   componentWillMount() {
     this.props.thisUrl = window.location.href;
     console.log("note render", this.props.thisUrl);
+    console.log(this);
+  }
+
+  componentDidMoutn() {
+    console.log(this);
+  }
+
+  componentDidUpdate() {
+    this.noteInput.value = this.noteInput.refs.editor.innerText;
+    console.log(this);
   }
 
   render() {
@@ -32,7 +63,7 @@ class Note extends Component {
         <button onClick={this.toggleModal}>New Note</button>
         <Modal show={this.state.isOpen} onClose={this.toggleModal}>
           <HeaderContainer thisUrl={thisUrl} />
-          <NotesEditor />
+          <NotesEditor editorValue={this.editorValue} />
         </Modal>
       </div>
     );
