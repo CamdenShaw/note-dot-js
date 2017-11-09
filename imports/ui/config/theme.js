@@ -20,6 +20,7 @@ import {
 } from 'material-ui/styles/colors'
 
 export const muiTheme= getMuiTheme({
+  fontFamily: 'Roboto, sans-serif',
   palette: {
     primary1Color: darken(deepOrange300, 0.1),
     primary2Color: blueGrey400,

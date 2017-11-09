@@ -2,8 +2,32 @@
   width: 15vw;
   min-width: 200px;
   position: relative;
-  left: -2.5vw;
+  left: -2.4vw;
   background: white;
   border-right: 2px solid navy;
   max-height: 98vh;
+  padding: 10px 2.5vw 10px 2.5vw;
+}
+
+.filters {
+  position: fixed;
+  padding: 12px 0;
+}
+
+.filters-form {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.filters-form select {
+  height: 40px;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+.filters-container h3 {
+  margin: 40px 0;
+  text-align: center;
 }
