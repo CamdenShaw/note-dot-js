@@ -24,8 +24,8 @@ function resizeEditor() {
 class NotesEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { editorState: EditorState.createEmpty() };
-    this.focus = () => this.refs.editor.focus();
+    this.state = { currentInput: "", editorState: EditorState.createEmpty() };
+    this.focus = () => this.noteInput.focus();
     this.onChange = editorState => this.setState({ editorState });
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.onTab = this.onTab.bind(this);
@@ -36,6 +36,7 @@ class NotesEditor extends Component {
   handleKeyCommand(command, editorState) {
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
+      console.log(newState);
       this.onChange(newState);
       return true;
     }
@@ -43,6 +44,7 @@ class NotesEditor extends Component {
   }
 
   onTab(e) {
+    e.preventDefault();
     const maxDepth = 4;
     this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
   }
@@ -58,6 +60,22 @@ class NotesEditor extends Component {
 
   componentDidMount() {
     resizeEditor();
+    // console.log(this.noteInput.refs.editor.innerHTML);
+    // console.log(addNote);
+  }
+
+  componentDidUpdate() {
+    words = `${this.noteInput.refs.editor.innerText}`;
+    if (words !== this.state.currentInput) {
+      this.setState({
+        currentInput: words
+      });
+    } else {
+      null;
+    }
+    this.props.editorValue(this.state.currentInput);
+    // console.log(words, this.state);
+    return this.props.editorValue;
   }
 
   render() {
@@ -101,7 +119,7 @@ class NotesEditor extends Component {
             onChange={this.onChange}
             onTab={this.onTab}
             placeholder="Write to your heart's content..."
-            ref="editor"
+            ref={ref => (this.noteInput = ref)}
             spellCheck={true}
           />
         </div>
