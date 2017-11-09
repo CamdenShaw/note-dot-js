@@ -4,7 +4,8 @@ class CourseSelector extends Component {
   state = {  }
   render() {
     return (
-      <selector />
+      <select>
+      </select>
     );
   }
 }
