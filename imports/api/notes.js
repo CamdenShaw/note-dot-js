@@ -21,13 +21,13 @@ Meteor.methods({
   "notes.addNote"(noteInput) {
     if (!this.userId) {
       throw new Meteor.Error(
-        "todos.removeCompleted.not-authorized",
+        "notes.addNote.not-authorized",
         "You are not allowed to remove completed to-dos for other users."
       );
     }
     Notes.insert({
       title: noteInput,
-      complete: false,
+      description: "",
       owner: this.userId
     });
   }

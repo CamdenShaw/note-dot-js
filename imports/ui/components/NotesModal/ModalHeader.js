@@ -10,22 +10,10 @@ class ModalHeader extends Component {
         <div className="inputs" />
         <div className="buttons">
           <div className="buttons-wrapper">
-                <FontAwesome
-                    className='share' 
-                    name='share-square-o'
-                    size='lg' />
-                <FontAwesome
-                    className='save'
-                    name='floppy-o'
-                    size='lg' />
-                <FontAwesome
-                    className='edit'
-                    name='pencil-square-o'
-                    size='lg' />
-                <FontAwesome
-                    className='delete'
-                    name='trash-o'
-                    size='lg' />
+            <FontAwesome className="share" name="share-square-o" size="lg" />
+            <FontAwesome className="save" name="floppy-o" size="lg" />
+            <FontAwesome className="edit" name="pencil-square-o" size="lg" />
+            <FontAwesome className="delete" name="trash-o" size="lg" />
           </div>
         </div>
       </div>
@@ -33,4 +21,4 @@ class ModalHeader extends Component {
   }
 }
 
-export default ModalHeader
+export default ModalHeader;

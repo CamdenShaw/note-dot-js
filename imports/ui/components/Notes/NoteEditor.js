@@ -2,10 +2,14 @@ import React, { Component } from "react";
 import { Editor, EditorState, RichUtils } from "draft-js";
 import "./styles.css";
 
-import StyleButtons from './EditorButton';
+import StyleButtons from "./EditorButton";
 
-import { BlockStyleControls, InlineStyleControls, getBlockStyle, styleMap } from './EditorButton';
-
+import {
+  BlockStyleControls,
+  InlineStyleControls,
+  getBlockStyle,
+  styleMap
+} from "./EditorButton";
 
 class NotesEditor extends Component {
   constructor(props) {
@@ -27,12 +31,12 @@ class NotesEditor extends Component {
     }
     return false;
   }
-  
+
   onTab(e) {
     const maxDepth = 4;
     this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
   }
-  
+
   toggleBlockType(blockType) {
     this.onChange(RichUtils.toggleBlockType(this.state.editorState, blockType));
   }
