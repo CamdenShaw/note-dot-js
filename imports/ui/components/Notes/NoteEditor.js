@@ -19,13 +19,6 @@ function resizeEditor() {
   rootHeight = modalHeight - 105;
   editorRoot.style.height = `${rootHeight}px`;
   editorContent.style.height = `${rootHeight - 60}px`;
-  console.log(
-    modal,
-    modalHeight,
-    editorRoot,
-    editorRoot.style.height,
-    editorContent.style.height
-  );
 }
 
 class NotesEditor extends Component {

@@ -5,6 +5,7 @@ import Modal from "../../components/NotesModal";
 import { Notes } from "../../../api/notes";
 import NotesEditor from "../../components/Notes/NoteEditor";
 import ModalHeader from "../../components/NotesModal/ModalHeader";
+import HeaderContainer from "../header/header";
 
 class Note extends Component {
   constructor(props) {
