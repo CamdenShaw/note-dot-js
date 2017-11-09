@@ -5,11 +5,12 @@ import Modal from "../../components/NotesModal";
 import { Notes } from "../../../api/notes";
 import NotesEditor from "../../components/Notes/NoteEditor";
 import ModalHeader from "../../components/NotesModal/ModalHeader";
+
 class Note extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { isOpen: false };
+    this.state = { isOpen: true };
   }
 
   toggleModal = () => {
@@ -23,21 +24,13 @@ class Note extends Component {
     console.log("note render", this.props.thisUrl);
   }
 
-  addNote(event) {
-    event.preventDefault();
-
-    if (this.noteInput.value) {
-      Meteor.call("notes.addNote", this.noteInput.value);
-
-      this.noteInput.value = "";
-    }
-  }
-
   render() {
+    thisUrl = window.location.href;
     return (
       <div>
         <button onClick={this.toggleModal}>New Note</button>
         <Modal show={this.state.isOpen} onClose={this.toggleModal}>
+          <HeaderContainer thisUrl={thisUrl} />
           <NotesEditor />
         </Modal>
       </div>

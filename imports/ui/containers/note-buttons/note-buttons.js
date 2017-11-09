@@ -12,9 +12,9 @@ const NoteButtons = (R) => {
   console.log(R.R)
     return (
       <div className="buttons-container" >
-        {R.R===true ? <PublishButton /> : <NotesListButton />}
-        {R.R===true ? <SaveButton /> : <ProfileButton />}
-        {R.R===true ? <DeleteButton /> : <LogoutButton />}
+        {R.R===true ? <PublishButton /> : <NotesListButton height='25px' />}
+        {R.R===true ? <SaveButton /> : <ProfileButton height='25px' />}
+        {R.R===true ? <DeleteButton /> : <LogoutButton height='25px' />}
       </div>
     );
 }
