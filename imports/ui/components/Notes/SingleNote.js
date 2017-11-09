@@ -5,10 +5,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 const NoteCard = () => (
     <Card>
         <CardTitle
-            title="some card title"
+            
         />
         <CardText
-            
         />
     </Card>
 )

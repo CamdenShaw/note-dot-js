@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./styles.css";
 
-import NoteCard from '../../components/NoteCards/NoteCardsItem';
+import SingleNote from '../../components/Notes/SingleNote';
 
 class Profile extends Component {
   render() {
@@ -9,7 +9,7 @@ class Profile extends Component {
     console.log("login render", this.props.thisUrl);
     return (
       <div className="profile-container">
-        <NoteCard />
+        <SingleNote />
       </div>
     );
   }
