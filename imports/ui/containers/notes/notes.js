@@ -41,6 +41,14 @@ class Note extends Component {
     }
   }
 
+  publishNote = () => {
+    event.preventDefault();
+    if (this.state.editorValue) {
+      //   console.log(this.state.editorValue);
+      Meteor.call("notes.publishNote", this.state.editorValue);
+    }
+  };
+
   componentWillMount() {
     this.props.thisUrl = window.location.href;
     // console.log("note render", this.props.thisUrl);
