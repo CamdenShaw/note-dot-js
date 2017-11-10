@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './styles.css'
+
 class Modal extends Component {
     render() {
         if(!this.props.show) {
@@ -29,7 +31,7 @@ class Modal extends Component {
 
         return (
             <div className="backdrop" style={backdropStyle}>
-                <button className="close-modal" onClick={this.props.onClose}>Close</button>
+                <button className="close-modal" onClick={this.props.onClose}>X</button>
                 <div className="modal" style={modalStyle}>
                     {this.props.children}
                 </div>
