@@ -19,7 +19,7 @@ import {
   deepPurple900
 } from 'material-ui/styles/colors'
 
-export const muiTheme= getMuiTheme({
+export const muiTheme = getMuiTheme({
   fontFamily: 'Roboto, sans-serif',
   palette: {
     primary1Color: darken(deepOrange300, 0.1),
