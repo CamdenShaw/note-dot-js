@@ -2,47 +2,54 @@ import React, { Component } from "react";
 import { Editor, EditorState, RichUtils } from "draft-js";
 import "./styles.css";
 
-import StyleButtons from './EditorButton';
+import StyleButtons from "./EditorButton";
 
-import { BlockStyleControls, InlineStyleControls, getBlockStyle, styleMap } from './EditorButton';
+import {
+  BlockStyleControls,
+  InlineStyleControls,
+  getBlockStyle,
+  styleMap
+} from "./EditorButton";
 
 function resizeEditor() {
-  editorRoot =  document.querySelector(".RichEditor-root")
-  modal =  document.querySelector(".modal")
-  editorContent =  document.querySelector(".RichEditor-editor")
-  modalHeight =  modal.clientHeight
-  rootHeight = modalHeight - 105
-  editorRoot.style.height = `${rootHeight}px`
-  editorContent.style.height = `${rootHeight - 60}px`
-  console.log(modal, modalHeight, editorRoot, editorRoot.style.height, editorContent.style.height)
+  editorRoot = document.querySelector(".RichEditor-root");
+  modal = document.querySelector(".modal");
+  editorContent = document.querySelector(".RichEditor-editor");
+  modalHeight = modal.clientHeight;
+  rootHeight = modalHeight - 105;
+  editorRoot.style.height = `${rootHeight}px`;
+  editorContent.style.height = `${rootHeight - 60}px`;
 }
 
 class NotesEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { editorState: EditorState.createEmpty() };
-    this.focus = () => this.refs.editor.focus();
+    this.state = { currentInput: "", editorState: EditorState.createEmpty() };
+    this.focus = () => this.noteInput.focus();
     this.onChange = editorState => this.setState({ editorState });
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.onTab = this.onTab.bind(this);
     this.toggleBlockType = this.toggleBlockType.bind(this);
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
+    this.editorValue = this.props.editorValue.bind(this);
   }
 
   handleKeyCommand(command, editorState) {
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
+      console.log(newState);
       this.onChange(newState);
       return true;
     }
     return false;
   }
-  
+
   onTab(e) {
+    e.preventDefault();
     const maxDepth = 4;
     this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
   }
-  
+
   toggleBlockType(blockType) {
     this.onChange(RichUtils.toggleBlockType(this.state.editorState, blockType));
   }
@@ -51,10 +58,25 @@ class NotesEditor extends Component {
       RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle)
     );
   }
-  
-    componentDidMount() {
-      resizeEditor()
+
+  componentDidMount() {
+    resizeEditor();
+    // console.log(this.noteInput.refs.editor.innerHTML);
+    // console.log(addNote);
+  }
+
+  componentDidUpdate() {
+    words = `${this.noteInput.refs.editor.innerText}`;
+    if (words !== this.state.currentInput) {
+      this.setState({
+        currentInput: words
+      });
+    } else {
+      null;
     }
+    this.props.editorValue = this.editorValue(this.state.currentInput);
+    // console.log(words, this.state);
+  }
 
   render() {
     const { editorState } = this.state;
@@ -75,8 +97,8 @@ class NotesEditor extends Component {
     }
 
     window.addEventListener("resize", () => {
-      resizeEditor()
-    })
+      resizeEditor();
+    });
 
     return (
       <div className="RichEditor-root">
@@ -97,7 +119,7 @@ class NotesEditor extends Component {
             onChange={this.onChange}
             onTab={this.onTab}
             placeholder="Write to your heart's content..."
-            ref="editor"
+            ref={ref => (this.noteInput = ref)}
             spellCheck={true}
           />
         </div>

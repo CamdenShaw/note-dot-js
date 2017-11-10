@@ -14,11 +14,18 @@ class HeaderRight extends Component {
         {thisUrl === noteUrl ? (
           <div />
         ) : thisUrl === profileUrl ? (
-          <NotesListButton height='36px' />
+          <NotesListButton height="36px" />
         ) : (
-          <ProfileButton height='36px' />
+          <ProfileButton height="36px" />
         )}
-        {thisUrl === noteUrl ? <div className="note-buttons-container" ><NoteButtons R={false} /> <NoteButtons R={true} /></div> : <LogoutButton height='36px' />}
+        {thisUrl === noteUrl ? (
+          <div className="note-buttons-container">
+            <NoteButtons addNote={false} R={false} />{" "}
+            <NoteButtons addNote={this.props.addNote} R={true} />
+          </div>
+        ) : (
+          <LogoutButton height="36px" />
+        )}
       </div>
     );
   }
