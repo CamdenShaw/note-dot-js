@@ -1,18 +1,15 @@
-import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton'
+import React from "react";
+import RaisedButton from "material-ui/RaisedButton";
 import FontAwesome from "react-fontawesome";
 
 const PublishButton = props => {
+  console.log(this);
   return (
-    <RaisedButton className="publish" >
+    <RaisedButton className="publish">
       Publish
-      <FontAwesome
-        className='share' 
-        name='share-square-o'
-        size='lg'
-      />
+      <FontAwesome className="share" name="share-square-o" size="lg" />
     </RaisedButton>
-  )
-}
+  );
+};
 
 export default PublishButton;

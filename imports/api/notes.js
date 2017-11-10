@@ -34,7 +34,28 @@ Meteor.methods({
     Notes.insert({
       title: "",
       noteText: noteInput,
-      owner: this.userId
+      owner: this.userId,
+      createdOn: new Date(),
+      week: "",
+      publish: false,
+      topic: ""
+    });
+  },
+  "notes.publishNote"(noteInput) {
+    if (!this.userId) {
+      throw new Meteor.Error(
+        "notes.publishNote.not-authorized",
+        "You are not allowed to publish a Note."
+      );
+    }
+    Notes.upsert({
+      title: "",
+      noteText: noteInput,
+      owner: this.userId,
+      createdOn: new Date(),
+      week: "",
+      publish: true,
+      topic: ""
     });
   }
 });
