@@ -42,7 +42,6 @@ class Note extends Component {
   }
 
   publishNote = () => {
-    event.preventDefault();
     if (this.state.editorValue) {
       //   console.log(this.state.editorValue);
       Meteor.call("notes.publishNote", this.state.editorValue);
@@ -70,7 +69,11 @@ class Note extends Component {
       <div>
         <button onClick={this.toggleModal}>New Note</button>
         <Modal show={this.state.isOpen} onClose={this.toggleModal}>
-          <HeaderContainer addNote={this.addNote} thisUrl={thisUrl} />
+          <HeaderContainer
+            publishNote={this.publishNote}
+            addNote={this.addNote}
+            thisUrl={thisUrl}
+          />
           <NotesEditor editorValue={this.editorValue} />
         </Modal>
       </div>

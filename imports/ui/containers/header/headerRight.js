@@ -7,6 +7,7 @@ import { url } from "../app";
 
 class HeaderRight extends Component {
   render() {
+    console.log(this.props);
     const profileUrl = `${url}/profile`;
     const noteUrl = `${url}/note`;
     return (
@@ -20,8 +21,12 @@ class HeaderRight extends Component {
         )}
         {thisUrl === noteUrl ? (
           <div className="note-buttons-container">
-            <NoteButtons addNote={false} R={false} />{" "}
-            <NoteButtons addNote={this.props.addNote} R={true} />
+            <NoteButtons publishNote={false} addNote={false} R={false} />{" "}
+            <NoteButtons
+              publishNote={this.props.publishNote}
+              addNote={this.props.addNote}
+              R={true}
+            />
           </div>
         ) : (
           <LogoutButton height="36px" />

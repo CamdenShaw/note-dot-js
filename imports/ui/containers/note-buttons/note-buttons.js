@@ -11,7 +11,11 @@ import "./styles.css";
 const NoteButtons = props => {
   return (
     <div className="buttons-container">
-      {props.R === true ? <PublishButton /> : <NotesListButton height="25px" />}
+      {props.R === true ? (
+        <PublishButton publishNote={props.publishNote} />
+      ) : (
+        <NotesListButton height="25px" />
+      )}
       {props.R === true ? (
         <SaveButton addNote={props.addNote} />
       ) : (

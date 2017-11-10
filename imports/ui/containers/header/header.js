@@ -9,6 +9,7 @@ import "./styles.css";
 
 class HeaderContainer extends Component {
   render() {
+    console.log(this.props);
     const profileUrl = `${url}/profile`;
     const noteUrl = `${url}/note`;
     return (
@@ -17,7 +18,12 @@ class HeaderContainer extends Component {
         iconElementLeft={
           thisUrl === noteUrl ? <HeaderLeftSNP /> : <HeaderLeft />
         }
-        iconElementRight={<HeaderRight addNote={this.props.addNote} />}
+        iconElementRight={
+          <HeaderRight
+            publishNote={this.props.publishNote}
+            addNote={this.props.addNote}
+          />
+        }
         titleStyle={{ display: "none" }}
       />
     );

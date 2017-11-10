@@ -5,7 +5,11 @@ import FontAwesome from "react-fontawesome";
 const PublishButton = props => {
   console.log(this);
   return (
-    <RaisedButton className="publish">
+    <RaisedButton
+      name="publishNote"
+      onClick={props.publishNote}
+      className="publish"
+    >
       Publish
       <FontAwesome className="share" name="share-square-o" size="lg" />
     </RaisedButton>

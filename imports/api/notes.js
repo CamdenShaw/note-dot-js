@@ -48,14 +48,18 @@ Meteor.methods({
         "You are not allowed to publish a Note."
       );
     }
-    Notes.upsert({
-      title: "",
-      noteText: noteInput,
-      owner: this.userId,
-      createdOn: new Date(),
-      week: "",
-      publish: true,
-      topic: ""
-    });
+    Notes.update(
+      { _id: Notes._id },
+      {
+        title: "",
+        noteText: noteInput,
+        owner: this.userId,
+        createdOn: new Date(),
+        week: "",
+        publish: true,
+        topic: ""
+      },
+      { upsert: true }
+    );
   }
 });
