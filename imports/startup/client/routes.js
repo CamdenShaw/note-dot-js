@@ -7,17 +7,6 @@ import PrivateRoute from "../../ui/components/PrivateRoute";
 import Home from "../../ui/containers/notes/notesList";
 import Profile from "../../ui/containers/profile";
 
-// const Home = () => (
-//   <div>
-//     <h2>Home</h2>
-//   </div>
-// );
-// const Profile = () => (
-//   <div>
-//     <h2>Profile</h2>
-//   </div>
-// );
-
 const NotFound = () => <Redirect to="/404" />;
 const p404 = () => (
   <div>
