@@ -16,3 +16,44 @@
 .note-buttons-container {
   display: flex;
 }
+
+.header-left-snp {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 7px 20px 0 30px;
+  max-width: 500px;
+}
+
+.header-left-snp input {
+  height: 26px;
+  font-size: 16px;
+  width: 100%;
+  margin: 1px;
+  border-radius: 20px;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+
+}
+
+.header-left-snp select {
+  height: 39px;
+  margin: 5px 0.5% 0;
+  border-radius: 20px;
+  width: 49%;
+  padding: 0 16%;
+  font-family: inherit;
+}
+
+
+.header-left-snp select:focus, .header-left-snp input:focus {
+  outline: none;
+  box-shadow: 0 0 10px -3px  blue;
+  font-family: inherit;
+}
+
+.header-left-snp select option {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}

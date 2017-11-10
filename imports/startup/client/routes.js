@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "../../ui/containers/login";
 import Editor from "../../ui/containers/notes/";
 import PrivateRoute from "../../ui/components/PrivateRoute";
-import Home from "../../ui/containers/notes/notesList";
+import Home from "../../ui/containers/home/index";
 import Profile from "../../ui/containers/profile";
 
 const NotFound = () => <Redirect to="/404" />;

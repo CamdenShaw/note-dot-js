@@ -15,6 +15,7 @@ class HeaderContainer extends Component {
     return (
       <AppBar
         style={{ height: 90 }}
+        iconStyleLeft={{margin: 0, width: '70%'}}
         iconElementLeft={
           thisUrl === noteUrl ? <HeaderLeftSNP /> : <HeaderLeft />
         }
