@@ -14,14 +14,17 @@ class Note extends Component {
       isOpen: true,
       editorValue: ""
     };
+    this.addNote = this.addNote.bind(this);
   }
 
   editorValue = text => {
     const noteValue = text;
-    // this.setState({
-    //   editorValue: ""
-    // });
-    console.log(text);
+    if (noteValue.length > 1 && noteValue !== this.state.editorValue) {
+      //   console.log(noteValue);
+      this.setState({
+        editorValue: noteValue
+      });
+    }
   };
 
   toggleModal = () => {
@@ -32,28 +35,25 @@ class Note extends Component {
 
   addNote(event) {
     event.preventDefault();
-
-    if (this.noteInput.value) {
-      Meteor.call("notes.addNote", this.noteInput.value);
-
-      this.noteInput.value = "";
-      console.log(this.noteInput.value);
+    if (this.state.editorValue) {
+      //   console.log(this.state.editorValue);
+      Meteor.call("notes.addNote", this.state.editorValue);
     }
   }
 
   componentWillMount() {
     this.props.thisUrl = window.location.href;
-    console.log("note render", this.props.thisUrl);
-    console.log(this);
+    // console.log("note render", this.props.thisUrl);
+    // console.log(this);
   }
 
   componentDidMoutn() {
-    console.log(this);
+    // console.log(this);
   }
 
   componentDidUpdate() {
-    this.noteInput.value = this.noteInput.refs.editor.innerText;
-    console.log(this);
+    this.noteInput = this.state.editorValue;
+    // console.log(this);
   }
 
   render() {
@@ -62,7 +62,7 @@ class Note extends Component {
       <div>
         <button onClick={this.toggleModal}>New Note</button>
         <Modal show={this.state.isOpen} onClose={this.toggleModal}>
-          <HeaderContainer thisUrl={thisUrl} />
+          <HeaderContainer addNote={this.addNote} thisUrl={thisUrl} />
           <NotesEditor editorValue={this.editorValue} />
         </Modal>
       </div>

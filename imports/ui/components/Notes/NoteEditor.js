@@ -31,6 +31,7 @@ class NotesEditor extends Component {
     this.onTab = this.onTab.bind(this);
     this.toggleBlockType = this.toggleBlockType.bind(this);
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
+    this.editorValue = this.props.editorValue.bind(this);
   }
 
   handleKeyCommand(command, editorState) {
@@ -73,9 +74,8 @@ class NotesEditor extends Component {
     } else {
       null;
     }
-    this.props.editorValue(this.state.currentInput);
+    this.props.editorValue = this.editorValue(this.state.currentInput);
     // console.log(words, this.state);
-    return this.props.editorValue;
   }
 
   render() {
