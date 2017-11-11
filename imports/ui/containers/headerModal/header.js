@@ -15,6 +15,7 @@ class ModalHeader extends Component {
         iconStyleLeft={{margin: 0, width: '70%'}}
         iconElementLeft={<HeaderLeft />}
         iconElementRight={<HeaderRight 
+            noteTitle={this.props.noteTitle}
             publishNote={this.props.publishNote}
             addNote={this.props.addNote}
             removeNote={this.props.removeNote}
