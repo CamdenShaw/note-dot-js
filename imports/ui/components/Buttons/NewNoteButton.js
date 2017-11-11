@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import RaisedButton from "material-ui/RaisedButton";
 import { Link } from "react-router-dom";
-import Modal from "../../components/NotesModal";
 import Note from "../../containers/notes/notes";
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';

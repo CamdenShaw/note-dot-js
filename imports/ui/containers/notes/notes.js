@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
-import Modal from "../../components/NotesModal";
 import { Notes } from "../../../api/notes";
 import NotesEditor from "../../components/Notes/NoteEditor";
 import ModalHeader from '../headerModal/header';
@@ -87,13 +86,11 @@ class Note extends Component {
     thisUrl = window.location.href;
     return (
       <div>
-        {/* <Modal show={this.state.isOpen} onClose={this.toggleModal}> */}
           <ModalHeader 
             publishNote={this.publishNote}
             addNote={this.addNote}
             removeNote={this.removeNote} />
           <NotesEditor editorValue={this.editorValue} />
-        {/* </Modal> */}
       </div>
     );
   }
