@@ -12,9 +12,11 @@ class Note extends Component {
     super(props);
     this.state = {
       isOpen: true,
-      editorValue: ""
+      editorValue: "",
+      currentNoteId: ""
     };
     this.addNote = this.addNote.bind(this);
+    this.removeNote = this.removeNote.bind(this);
   }
 
   editorValue = text => {
@@ -33,19 +35,38 @@ class Note extends Component {
     });
   };
 
-  addNote(event) {
+  addNote = event => {
     event.preventDefault();
     if (this.state.editorValue) {
       //   console.log(this.state.editorValue);
       Meteor.call("notes.addNote", this.state.editorValue);
+      currentNote = Notes.findOne(
+        {},
+        { sort: { owner: Meteor.userId(), createdOn: -1, limit: 1 } }
+      );
     }
-  }
+    if (currentNote) {
+      this.setState({
+        currentNoteId: `${currentNote._id}`
+      });
+      console.log("currentNote variable", currentNote._id);
+    }
+    console.log(
+      "currentNoteId from state",
+      this.state.currentNoteId,
+      this.state
+    );
+  };
 
   publishNote = () => {
     if (this.state.editorValue) {
       //   console.log(this.state.editorValue);
       Meteor.call("notes.publishNote", this.state.editorValue);
     }
+  };
+
+  removeNote = () => {
+    Meteor.call("notes.removeNote", `${this.state.currentNoteId}`);
   };
 
   componentWillMount() {
@@ -72,6 +93,7 @@ class Note extends Component {
           <HeaderContainer
             publishNote={this.publishNote}
             addNote={this.addNote}
+            removeNote={this.removeNote}
             thisUrl={thisUrl}
           />
           <NotesEditor editorValue={this.editorValue} />

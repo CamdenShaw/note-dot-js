@@ -21,7 +21,11 @@ const NoteButtons = props => {
       ) : (
         <ProfileButton height="25px" />
       )}
-      {props.R === true ? <DeleteButton /> : <LogoutButton height="25px" />}
+      {props.R === true ? (
+        <DeleteButton removeNote={props.removeNote} />
+      ) : (
+        <LogoutButton height="25px" />
+      )}
     </div>
   );
 };

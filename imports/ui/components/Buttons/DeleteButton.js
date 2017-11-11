@@ -1,19 +1,19 @@
-import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton'
+import React from "react";
+import RaisedButton from "material-ui/RaisedButton";
 import FontAwesome from "react-fontawesome";
-import './styles.css'
+import "./styles.css";
 
 const DeleteButton = props => {
   return (
-    <RaisedButton className="delete" >
+    <RaisedButton
+      name="removeNote"
+      onClick={props.removeNote}
+      className="delete"
+    >
       Delete
-      <FontAwesome
-        className='delete'
-        name='trash-o'
-        size='lg'
-      />
+      <FontAwesome className="delete" name="trash-o" size="lg" />
     </RaisedButton>
-  )
-}
+  );
+};
 
 export default DeleteButton;

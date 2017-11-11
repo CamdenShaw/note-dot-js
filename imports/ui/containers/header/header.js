@@ -9,13 +9,12 @@ import "./styles.css";
 
 class HeaderContainer extends Component {
   render() {
-    console.log(this.props);
     const profileUrl = `${url}/profile`;
     const noteUrl = `${url}/note`;
     return (
       <AppBar
         style={{ height: 90 }}
-        iconStyleLeft={{margin: 0, width: '70%'}}
+        iconStyleLeft={{ margin: 0, width: "70%" }}
         iconElementLeft={
           thisUrl === noteUrl ? <HeaderLeftSNP /> : <HeaderLeft />
         }
@@ -23,6 +22,7 @@ class HeaderContainer extends Component {
           <HeaderRight
             publishNote={this.props.publishNote}
             addNote={this.props.addNote}
+            removeNote={this.props.removeNote}
           />
         }
         titleStyle={{ display: "none" }}
