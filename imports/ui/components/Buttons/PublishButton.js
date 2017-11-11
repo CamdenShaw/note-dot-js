@@ -6,8 +6,7 @@ const PublishButton = props => {
   console.log(this);
   return (
     <RaisedButton className="publish">
-      Publish
-      <FontAwesome className="share" name="share-square-o" size="lg" />
+      Publish <FontAwesome className="share" name="share-square-o"  />
     </RaisedButton>
   );
 };

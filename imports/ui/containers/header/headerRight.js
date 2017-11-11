@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import LogoutButton from "../../components/Buttons/LogoutButton";
 import ProfileButton from "../../components/Buttons/ProfileButton";
 import NotesListButton from "../../components/Buttons/NotesListButton";
-import NoteButtons from "../note-buttons";
 import { url } from "../app";
 
 class HeaderRight extends Component {
