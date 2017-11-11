@@ -56,8 +56,8 @@ class HeaderLeft extends Component {
           className="title-input" 
           placeholder="Title" 
         />
-        <WeekSelector weekValue={this.selectValue} />
-        <TopicSelector topicValue={this.selectValue} />
+        <WeekSelector namedClass={"week"} weekValue={this.selectValue} />
+        <TopicSelector namedClass={"topic"} topicValue={this.selectValue} />
       </form>
     )
   }

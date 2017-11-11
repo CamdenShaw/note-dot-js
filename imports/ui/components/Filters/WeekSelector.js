@@ -3,15 +3,12 @@ import React, { Component } from 'react';
 class WeekSelector extends Component {
   constructor(props) {
     super(props)
-    this.state = { 
-      namedClass: "week"
-     }
      this.selectValue = this.props.weekValue.bind(this)
   }
 
   render() {
     return (
-      <select className={this.state.namedClass} onBlur={() => (this.selectValue(this.state.namedClass))} >
+      <select className={this.props.namedClass} onBlur={() => (this.selectValue(this.props.namedClass))} >
         <option value='' >Week</option>
         <option value='1' >One</option>
         <option value='2' >Two</option>
