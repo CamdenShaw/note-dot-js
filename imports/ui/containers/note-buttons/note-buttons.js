@@ -11,13 +11,21 @@ import "./styles.css";
 const NoteButtons = props => {
   return (
     <div className="buttons-container">
-      {props.R === true ? <PublishButton noteTitle={props.noteTitle} /> : <NotesListButton height="25px" />}
+      {props.R === true ? (
+        <PublishButton noteTitle={props.noteTitle} publishNote={props.publishNote} />
+      ) : (
+        <NotesListButton height="25px" />
+      )}
       {props.R === true ? (
         <SaveButton noteTitle={props.noteTitle} addNote={props.addNote} />
       ) : (
         <ProfileButton height="25px" />
       )}
-      {props.R === true ? <DeleteButton /> : <LogoutButton height="25px" />}
+      {props.R === true ? (
+        <DeleteButton removeNote={props.removeNote} />
+      ) : (
+        <LogoutButton height="25px" />
+      )}
     </div>
   );
 };

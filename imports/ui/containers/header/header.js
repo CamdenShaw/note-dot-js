@@ -14,11 +14,10 @@ class HeaderContainer extends Component {
     return (
       <AppBar
         style={{ height: 90 }}
-        iconStyleLeft={{margin: 0, width: '70%'}}
-        iconElementLeft={
-          thisUrl === noteUrl ? <HeaderLeftSNP headerFormValue={this.props.headerFormValue} /> : <HeaderLeft />
-        }
-        iconElementRight={<HeaderRight noteTitle={this.props.noteTitle} addNote={this.props.addNote} />}
+        iconStyleLeft={{ margin: 0, width: "70%" }}
+        iconElementLeft={ <HeaderLeft /> }
+        iconElementRight={<HeaderRight />}
+        iconElementRight={<HeaderRight />}
         titleStyle={{ display: "none" }}
       />
     );

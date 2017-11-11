@@ -32,8 +32,13 @@ Meteor.methods({
       );
     }
     Notes.insert({
+<<<<<<< HEAD
       title: titleInput,
       noteText: noteInput,
+=======
+      title: "",
+      content: noteInput,
+>>>>>>> 86c468db74d5d5ffd55f06c489e4b56b5b1d6127
       owner: this.userId,
       createdOn: new Date(),
       week: weekInput,
@@ -48,6 +53,7 @@ Meteor.methods({
         "You are not allowed to publish a Note."
       );
     }
+<<<<<<< HEAD
     Notes.upsert({
       title: titleInput,
       noteText: noteInput,
@@ -57,5 +63,31 @@ Meteor.methods({
       publish: true,
       topic: topicInput
     });
+=======
+    Notes.update(
+      { _id: Notes._id },
+      {
+        title: "",
+        content: noteInput,
+        owner: this.userId,
+        createdOn: new Date(),
+        week: "",
+        publish: true,
+        topic: ""
+      },
+      { upsert: true }
+    );
+  },
+  "notes.removeNote"(note) {
+    console.log("meteor delete method start", note);
+    if (!this.userId) {
+      throw new Meteor.Error(
+        "notes.removeNote.not-authorized",
+        "You are not allowed to remove notes for other users."
+      );
+    }
+    console.log("meteor delete method", note);
+    Notes.remove({ _id: note }, 1);
+>>>>>>> 86c468db74d5d5ffd55f06c489e4b56b5b1d6127
   }
 });

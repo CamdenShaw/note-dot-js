@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Redirect } from "react-router-dom";
+import Note from './notes'
 
 import SingleNote from '../../components/Notes/SingleNote';
 
@@ -13,6 +14,7 @@ class NotesListContainer extends Component {
     return (
       // Meteor.userId() ? 
       <div className="notesContainer">
+        {/* <Note /> */}
       {this.props.notes.map((note, index) => (
         <SingleNote
           key={index}

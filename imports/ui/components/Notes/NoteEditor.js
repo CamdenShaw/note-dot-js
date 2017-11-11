@@ -11,15 +11,16 @@ import {
   styleMap
 } from "./EditorButton";
 
-function resizeEditor() {
-  editorRoot = document.querySelector(".RichEditor-root");
-  modal = document.querySelector(".modal");
-  editorContent = document.querySelector(".RichEditor-editor");
-  modalHeight = modal.clientHeight;
-  rootHeight = modalHeight - 105;
-  editorRoot.style.height = `${rootHeight}px`;
-  editorContent.style.height = `${rootHeight - 60}px`;
-}
+// function resizeEditor() {
+//   editorRoot = document.querySelector(".RichEditor-root");
+//   modal = document.querySelector(".modal");
+//   editorContent = document.querySelector(".RichEditor-editor");
+//   modalHeight = 1000;
+//   // modalHeight = modal.clientHeight;
+//   rootHeight = modalHeight - 105;
+//   editorRoot.style.height = `${rootHeight}px`;
+//   editorContent.style.height = `${rootHeight - 60}px`;
+// }
 
 class NotesEditor extends Component {
   constructor(props) {
@@ -58,11 +59,11 @@ class NotesEditor extends Component {
     );
   }
 
-  componentDidMount() {
-    resizeEditor();
-    // console.log(this.noteInput.refs.editor.innerHTML);
-    // console.log(addNote);
-  }
+  // componentDidMount() {
+  //   resizeEditor();
+  //   // console.log(this.noteInput.refs.editor.innerHTML);
+  //   // console.log(addNote);
+  // }
 
   componentDidUpdate() {
     words = `${this.noteInput.refs.editor.innerText}`;
@@ -95,9 +96,9 @@ class NotesEditor extends Component {
       }
     }
 
-    window.addEventListener("resize", () => {
-      resizeEditor();
-    });
+    // window.addEventListener("resize", () => {
+    //   resizeEditor();
+    // });
 
     return (
       <div className="RichEditor-root">

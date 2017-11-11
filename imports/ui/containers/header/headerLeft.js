@@ -18,7 +18,7 @@ const HeaderLeft = props => {
           <p>Avatar</p>
         </div>
       ) : (
-        <h4>adp</h4>
+        null
       )}
       {thisUrl === profileUrl ? (
         <div style={{ padding: 10 }}>

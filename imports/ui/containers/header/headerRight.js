@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import LogoutButton from "../../components/Buttons/LogoutButton";
 import ProfileButton from "../../components/Buttons/ProfileButton";
 import NotesListButton from "../../components/Buttons/NotesListButton";
-import NoteButtons from "../note-buttons";
 import { url } from "../app";
 
 class HeaderRight extends Component {
@@ -20,8 +19,19 @@ class HeaderRight extends Component {
         )}
         {thisUrl === noteUrl ? (
           <div className="note-buttons-container">
-            <NoteButtons addNote={false} R={false} />{" "}
-            <NoteButtons addNote={this.props.addNote} R={true} noteTitle={this.props.noteTitle} />
+            <NoteButtons
+              publishNote={false}
+              addNote={false}
+              removeNote={false}
+              R={false}
+            />{" "}
+            <NoteButtons
+              publishNote={this.props.publishNote}
+              addNote={this.props.addNote}
+              removeNote={this.props.removeNote}
+              R={true}
+              noteTitle={this.props.noteTitle} 
+            />
           </div>
         ) : (
           <LogoutButton height="36px" />

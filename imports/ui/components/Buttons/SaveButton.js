@@ -6,8 +6,7 @@ const SaveButton = props => {
   let title = (props.noteTitle === '')
   return (
     <RaisedButton disabled={title} name="addNote" onClick={props.addNote} className="save">
-      Save
-      <FontAwesome className="save" name="floppy-o" size="lg" />
+      Save <FontAwesome className="save" name="floppy-o" size="lg" />
     </RaisedButton>
   );
 };

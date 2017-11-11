@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import "./styles.css";
 
-// import SingleNote from '../../components/Notes/SingleNote';
-
+import Note from '../notes/notes'
 import NoteListContainer from '../notes/notesList'
 class Profile extends Component {
   render() {
     this.props.thisUrl = window.location.href;
     return (
       <div className="profile-container">
-        {/* <SingleNote /> */}
+        {/* <Note /> */}
         <NoteListContainer />
       </div>
     );
