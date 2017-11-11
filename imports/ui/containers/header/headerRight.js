@@ -21,7 +21,7 @@ class HeaderRight extends Component {
         {thisUrl === noteUrl ? (
           <div className="note-buttons-container">
             <NoteButtons addNote={false} R={false} />{" "}
-            <NoteButtons addNote={this.props.addNote} R={true} />
+            <NoteButtons addNote={this.props.addNote} R={true} noteTitle={this.props.noteTitle} />
           </div>
         ) : (
           <LogoutButton height="36px" />

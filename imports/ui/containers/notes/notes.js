@@ -12,15 +12,30 @@ class Note extends Component {
     super(props);
     this.state = {
       isOpen: true,
-      editorValue: ""
+      editorValue: "",
+      headerFormValue: {
+        topicValue: 'none',
+        weekValue: 0,
+        titleValue: ''
+      }
     };
     this.addNote = this.addNote.bind(this);
+  }
+
+  headerFormValue = ( title, week = 0, topic = 'none' ) => {
+
+    this.setState({
+      headerFormValue: {
+        titleValue: title,
+        weekValue: week,
+        topicValue: topic
+      }
+    })
   }
 
   editorValue = text => {
     const noteValue = text;
     if (noteValue.length > 1 && noteValue !== this.state.editorValue) {
-      //   console.log(noteValue);
       this.setState({
         editorValue: noteValue
       });
@@ -34,34 +49,29 @@ class Note extends Component {
   };
 
   addNote(event) {
+    let { titleValue, weekValue, topicValue } = this.state.headerFormValue
+    console.log(titleValue, weekValue, topicValue)
     event.preventDefault();
     if (this.state.editorValue) {
-      //   console.log(this.state.editorValue);
-      Meteor.call("notes.addNote", this.state.editorValue);
+      Meteor.call("notes.addNote", this.state.editorValue, titleValue, weekValue, topicValue);
     }
   }
 
   publishNote = () => {
+    let { titleValue, weekValue, topicValue } = this.state.headerFormValue
+    console.log(titleValue, weekValue, topicValue)
     event.preventDefault();
     if (this.state.editorValue) {
-      //   console.log(this.state.editorValue);
-      Meteor.call("notes.publishNote", this.state.editorValue);
+      Meteor.call("notes.publishNote", this.state.editorValue, titleValue, weekValue, topicValue);
     }
   };
 
   componentWillMount() {
     this.props.thisUrl = window.location.href;
-    // console.log("note render", this.props.thisUrl);
-    // console.log(this);
-  }
-
-  componentDidMoutn() {
-    // console.log(this);
   }
 
   componentDidUpdate() {
     this.noteInput = this.state.editorValue;
-    // console.log(this);
   }
 
   render() {
@@ -70,7 +80,7 @@ class Note extends Component {
       <div>
         <button onClick={this.toggleModal}>New Note</button>
         <Modal show={this.state.isOpen} onClose={this.toggleModal}>
-          <HeaderContainer addNote={this.addNote} thisUrl={thisUrl} />
+          <HeaderContainer headerFormValue={ this.headerFormValue } noteTitle={this.state.headerFormValue.titleValue} addNote={ this.addNote } thisUrl={thisUrl} />
           <NotesEditor editorValue={this.editorValue} />
         </Modal>
       </div>

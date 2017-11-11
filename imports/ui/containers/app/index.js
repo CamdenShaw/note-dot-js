@@ -15,7 +15,6 @@ export const url = `http://localhost:3000`;
 
 class App extends Component {
   render() {
-    console.log('index.js render', this.props.thisUrl)
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <Router>

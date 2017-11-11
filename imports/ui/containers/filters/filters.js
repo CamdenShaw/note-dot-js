@@ -6,6 +6,9 @@ import { StudentSelector, TopicSelector, UpVotes, WeekSelector } from '../../com
 import './styles.css'
 
 const FiltersContainer = (props) => {
+  function add(){
+    let two = 1 + 1;
+  }
   return (
     <div 
       style={{
@@ -19,8 +22,8 @@ const FiltersContainer = (props) => {
         <h3>FILTERS</h3>
         <form className="filters-form" >
           <StudentSelector />
-          <TopicSelector />
-          <WeekSelector />
+          <TopicSelector topicValue={add} />
+          <WeekSelector weekValue={add} />
           <UpVotes />
         </form>
       </div>

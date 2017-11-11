@@ -16,9 +16,9 @@ class HeaderContainer extends Component {
         style={{ height: 90 }}
         iconStyleLeft={{margin: 0, width: '70%'}}
         iconElementLeft={
-          thisUrl === noteUrl ? <HeaderLeftSNP /> : <HeaderLeft />
+          thisUrl === noteUrl ? <HeaderLeftSNP headerFormValue={this.props.headerFormValue} /> : <HeaderLeft />
         }
-        iconElementRight={<HeaderRight addNote={this.props.addNote} />}
+        iconElementRight={<HeaderRight noteTitle={this.props.noteTitle} addNote={this.props.addNote} />}
         titleStyle={{ display: "none" }}
       />
     );

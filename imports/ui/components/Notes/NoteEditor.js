@@ -37,7 +37,6 @@ class NotesEditor extends Component {
   handleKeyCommand(command, editorState) {
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
-      console.log(newState);
       this.onChange(newState);
       return true;
     }
