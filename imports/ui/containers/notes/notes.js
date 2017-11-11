@@ -32,7 +32,7 @@ class Note extends Component {
       }
     })
   }
-
+  
   editorValue = text => {
     const noteValue = text;
     if (noteValue.length > 1 && noteValue !== this.state.editorValue) {

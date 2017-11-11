@@ -32,13 +32,8 @@ Meteor.methods({
       );
     }
     Notes.insert({
-<<<<<<< HEAD
       title: titleInput,
-      noteText: noteInput,
-=======
-      title: "",
       content: noteInput,
->>>>>>> 86c468db74d5d5ffd55f06c489e4b56b5b1d6127
       owner: this.userId,
       createdOn: new Date(),
       week: weekInput,
@@ -53,27 +48,16 @@ Meteor.methods({
         "You are not allowed to publish a Note."
       );
     }
-<<<<<<< HEAD
-    Notes.upsert({
-      title: titleInput,
-      noteText: noteInput,
-      owner: this.userId,
-      createdOn: new Date(),
-      week: weekInput,
-      publish: true,
-      topic: topicInput
-    });
-=======
     Notes.update(
       { _id: Notes._id },
       {
-        title: "",
+        title: titleInput,
         content: noteInput,
         owner: this.userId,
         createdOn: new Date(),
-        week: "",
+        week: weekInput,
         publish: true,
-        topic: ""
+        topic: topicInput
       },
       { upsert: true }
     );
@@ -88,6 +72,5 @@ Meteor.methods({
     }
     console.log("meteor delete method", note);
     Notes.remove({ _id: note }, 1);
->>>>>>> 86c468db74d5d5ffd55f06c489e4b56b5b1d6127
   }
 });

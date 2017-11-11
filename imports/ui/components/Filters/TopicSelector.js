@@ -14,7 +14,7 @@ class TopicSelector extends Component {
   render() {
     return (
       <select className={this.state.namedClass} onBlur={() => this.selectValue(this.state.namedClass) } >
-        <option value='' >Topic</option>
+        <option value='a' >Topic</option>
         <option value='styles' >Styles</option>
         <option value='vanilla-js' >Vanilla.js</option>
         <option value='react' >React</option>

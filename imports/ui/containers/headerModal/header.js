@@ -8,12 +8,12 @@ import "./styles.css";
 
 class ModalHeader extends Component {
   render() {
-      console.log(this.props)
+      console.log('Modal Header', this.props)
     return (
       <AppBar
         style={{ height: 90 }}
         iconStyleLeft={{margin: 0, width: '70%'}}
-        iconElementLeft={<HeaderLeft />}
+        iconElementLeft={<HeaderLeft headerFormValue={this.props.headerFormValue} />}
         iconElementRight={<HeaderRight 
             noteTitle={this.props.noteTitle}
             publishNote={this.props.publishNote}

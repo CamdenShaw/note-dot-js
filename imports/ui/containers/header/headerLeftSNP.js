@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import DeleteButton from '../../components/Buttons/DeleteButton'
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import { WeekSelector, TopicSelector } from '../../components/Filters/'
 
