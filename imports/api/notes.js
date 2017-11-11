@@ -33,7 +33,7 @@ Meteor.methods({
     }
     Notes.insert({
       title: "",
-      noteText: noteInput,
+      content: noteInput,
       owner: this.userId,
       createdOn: new Date(),
       week: "",
