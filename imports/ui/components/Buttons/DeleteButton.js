@@ -5,13 +5,8 @@ import "./styles.css";
 
 const DeleteButton = props => {
   return (
-    <RaisedButton
-      name="removeNote"
-      onClick={props.removeNote}
-      className="delete"
-    >
-      Delete
-      <FontAwesome className="delete" name="trash-o" size="lg" />
+    <RaisedButton className="delete" onClick={props.removeNote}>
+      Delete <FontAwesome className='delete' name='trash-o' />
     </RaisedButton>
   );
 };

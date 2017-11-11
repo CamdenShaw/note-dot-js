@@ -18,13 +18,7 @@ class HeaderContainer extends Component {
         iconElementLeft={
           thisUrl === noteUrl ? <HeaderLeftSNP /> : <HeaderLeft />
         }
-        iconElementRight={
-          <HeaderRight
-            publishNote={this.props.publishNote}
-            addNote={this.props.addNote}
-            removeNote={this.props.removeNote}
-          />
-        }
+        iconElementRight={<HeaderRight />}
         titleStyle={{ display: "none" }}
       />
     );

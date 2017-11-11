@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./styles.css";
 
-// import SingleNote from '../../components/Notes/SingleNote';
-
+import Note from '../notes/notes'
 import NoteListContainer from '../notes/notesList'
 class Profile extends Component {
   render() {
@@ -10,7 +9,7 @@ class Profile extends Component {
     console.log("login render", this.props.thisUrl);
     return (
       <div className="profile-container">
-        {/* <SingleNote /> */}
+        {/* <Note /> */}
         <NoteListContainer />
       </div>
     );

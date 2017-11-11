@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
-import Modal from "../../components/NotesModal";
 import { Notes } from "../../../api/notes";
 import NotesEditor from "../../components/Notes/NoteEditor";
-import ModalHeader from "../../components/NotesModal/ModalHeader";
-import HeaderContainer from "../header/header";
+import ModalHeader from '../headerModal/header';
 
 class Note extends Component {
   constructor(props) {
@@ -29,11 +27,11 @@ class Note extends Component {
     }
   };
 
-  toggleModal = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  };
+  // toggleModal = () => {
+  //   this.setState({
+  //     isOpen: !this.state.isOpen
+  //   });
+  // };
 
   addNote = event => {
     event.preventDefault();
@@ -69,15 +67,15 @@ class Note extends Component {
     Meteor.call("notes.removeNote", `${this.state.currentNoteId}`);
   };
 
-  componentWillMount() {
-    this.props.thisUrl = window.location.href;
-    // console.log("note render", this.props.thisUrl);
-    // console.log(this);
-  }
+  // componentWillMount() {
+  //   this.props.thisUrl = window.location.href;
+  //   // console.log("note render", this.props.thisUrl);
+  //   // console.log(this);
+  // }
 
-  componentDidMoutn() {
-    // console.log(this);
-  }
+  // componentDidMount() {
+  //   // console.log(this);
+  // }
 
   componentDidUpdate() {
     this.noteInput = this.state.editorValue;
@@ -88,16 +86,11 @@ class Note extends Component {
     thisUrl = window.location.href;
     return (
       <div>
-        <button onClick={this.toggleModal}>New Note</button>
-        <Modal show={this.state.isOpen} onClose={this.toggleModal}>
-          <HeaderContainer
+          <ModalHeader 
             publishNote={this.publishNote}
             addNote={this.addNote}
-            removeNote={this.removeNote}
-            thisUrl={thisUrl}
-          />
+            removeNote={this.removeNote} />
           <NotesEditor editorValue={this.editorValue} />
-        </Modal>
       </div>
     );
   }
