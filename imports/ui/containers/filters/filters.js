@@ -6,13 +6,10 @@ import { StudentSelector, TopicSelector, UpVotes, WeekSelector } from '../../com
 import './styles.css'
 
 document.addEventListener('DOMContentLoaded', () => {
-  let top, filterTop, filters
-  window.addEventListener('scroll', (e) => {
-    top = window.scrollY
-    filterTop = 100
-    if((top > 0) && (top < 90)) filterTop =  filterTop - top
-    if(top >=  90) filterTop = 10
-    document.querySelector('.filters').style = `top: ${filterTop}px`
+  let filters = document.querySelector('.filters')
+  window.addEventListener('scroll', () => {
+    if(window.scrollY >= 90 ) filters.style = `position: fixed; top: 12px;`
+    else filters.style = 'position: relative'
   })
 })
 

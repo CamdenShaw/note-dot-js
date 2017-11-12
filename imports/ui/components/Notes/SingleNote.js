@@ -6,22 +6,21 @@ import RaisedButton from 'material-ui/RaisedButton';
 class NoteCard extends Component {
     constructor(props){
         super(props)
-        content = `${this.props.item.content}`
-        title = `${this.props.item.title}`
     }
 
     componentDidMount() {
-        document.querySelector(`.ct-${title.replace(/\s/g , '-')}`).innerHTML = content
+        document.querySelector(`.ct-${this.props.item.title.replace(/\s/g , '-')}`).innerHTML = this.props.item.content
     }
     
     render() {
+        title = `${'render', this.props.item.title}`
         return (
-        <Card>
+        <Card className="card">
             <CardTitle
                 title={title}
                 subtitle={this.props.item.topic}
             />
-            <CardText className={`ct-${title.replace(/\s/g , '-')}`} >
+            <CardText className={`ct-${title.replace(/\s/g , '-')} card-text`} >
             </CardText>
         </Card>
     )

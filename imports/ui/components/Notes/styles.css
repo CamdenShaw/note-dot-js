@@ -80,3 +80,13 @@
 .RichEditor-activeButton {
   color: #5890ff;
 }
+
+.card {
+  margin-top: 20px;
+}
+
+.card-text {
+  max-height: 80px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
