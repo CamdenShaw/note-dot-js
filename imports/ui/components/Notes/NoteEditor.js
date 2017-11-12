@@ -11,17 +11,6 @@ import {
   styleMap
 } from "./EditorButton";
 
-// function resizeEditor() {
-//   editorRoot = document.querySelector(".RichEditor-root");
-//   modal = document.querySelector(".modal");
-//   editorContent = document.querySelector(".RichEditor-editor");
-//   modalHeight = 1000;
-//   // modalHeight = modal.clientHeight;
-//   rootHeight = modalHeight - 105;
-//   editorRoot.style.height = `${rootHeight}px`;
-//   editorContent.style.height = `${rootHeight - 60}px`;
-// }
-
 class NotesEditor extends Component {
   constructor(props) {
     super(props);
@@ -59,14 +48,9 @@ class NotesEditor extends Component {
     );
   }
 
-  // componentDidMount() {
-  //   resizeEditor();
-  //   // console.log(this.noteInput.refs.editor.innerHTML);
-  //   // console.log(addNote);
-  // }
-
   componentDidUpdate() {
-    words = `${this.noteInput.refs.editor.innerText}`;
+    // words = `${this.noteInput.refs.editor.innerText}`;
+    words = document.querySelector('.public-DraftEditor-content').innerHTML;
     if (words !== this.state.currentInput) {
       this.setState({
         currentInput: words
@@ -75,7 +59,6 @@ class NotesEditor extends Component {
       null;
     }
     this.props.editorValue = this.editorValue(this.state.currentInput);
-    // console.log(words, this.state);
   }
 
   render() {
@@ -95,10 +78,6 @@ class NotesEditor extends Component {
         className += " RichEditor-hidePlaceholder";
       }
     }
-
-    // window.addEventListener("resize", () => {
-    //   resizeEditor();
-    // });
 
     return (
       <div className="RichEditor-root">

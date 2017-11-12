@@ -52,7 +52,6 @@ class Note extends Component {
     event.preventDefault();
     let { titleValue, weekValue, topicValue } = this.state.headerFormValue
     if (this.state.editorValue) {
-      //   console.log(this.state.editorValue);
       Meteor.call("notes.addNote", this.state.editorValue, titleValue, weekValue, topicValue);
       currentNote = Notes.findOne(
         {},
@@ -63,13 +62,7 @@ class Note extends Component {
       this.setState({
         currentNoteId: `${currentNote._id}`
       });
-      console.log("currentNote variable", currentNote._id);
     }
-    console.log(
-      "currentNoteId from state",
-      this.state.currentNoteId,
-      this.state
-    );
   };
 
   publishNote = () => {
@@ -87,16 +80,6 @@ class Note extends Component {
   removeNote = () => {
     Meteor.call("notes.removeNote", `${this.state.currentNoteId}`);
   };
-
-  // componentWillMount() {
-  //   this.props.thisUrl = window.location.href;
-  //   // console.log("note render", this.props.thisUrl);
-  //   // console.log(this);
-  // }
-
-  // componentDidMount() {
-  //   // console.log(this);
-  // }
 
   componentDidUpdate() {
     this.noteInput = this.state.editorValue;

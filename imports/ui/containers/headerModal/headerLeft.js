@@ -16,7 +16,6 @@ class HeaderLeft extends Component {
   }
 
   selectValue = (x) => {
-    console.log(x)
     if (x === 'week') {
       week = document.querySelector(`.${x}`).value
       this.setState({
@@ -33,11 +32,9 @@ class HeaderLeft extends Component {
         title
       })
     }
-    console.log('header left state assign', this.state)
   }
 
   submitted = () => {
-    console.log('header left state submitted', this.state)
     let { title, week, topic } = this.state
     this.headerFormValue(title, week, topic)
   }

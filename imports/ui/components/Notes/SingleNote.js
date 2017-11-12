@@ -3,18 +3,28 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import RaisedButton from 'material-ui/RaisedButton';
 
 
-const NoteCard = (note) => {
-   
-    return (
-    <Card>
-        <CardTitle
-            title={note.item.title}
-            subtitle={note.item.topic}
-        />
-        <CardText>
-            {note.item.content}
-        </CardText>
-    </Card>
-)}
+class NoteCard extends Component {
+    constructor(props){
+        super(props)
+        content = `${this.props.item.content}`
+        title = `${this.props.item.title}`
+    }
+
+    componentDidMount() {
+        document.querySelector(`.ct-${title.replace(/\s/g , '-')}`).innerHTML = content
+    }
+    
+    render() {
+        return (
+        <Card>
+            <CardTitle
+                title={title}
+                subtitle={this.props.item.topic}
+            />
+            <CardText className={`ct-${title.replace(/\s/g , '-')}`} >
+            </CardText>
+        </Card>
+    )
+}}
 
 export default NoteCard

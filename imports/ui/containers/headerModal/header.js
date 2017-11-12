@@ -8,7 +8,6 @@ import "./styles.css";
 
 class ModalHeader extends Component {
   render() {
-      console.log('Modal Header', this.props)
     return (
       <AppBar
         style={{ height: 90 }}

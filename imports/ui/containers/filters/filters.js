@@ -6,38 +6,20 @@ import { StudentSelector, TopicSelector, UpVotes, WeekSelector } from '../../com
 import './styles.css'
 
 document.addEventListener('DOMContentLoaded', () => {
-    let top = window.scrollY
-     filterTop = 100
-    if((top > 0) && (top < 90)) {
-      console.log(filterTop)
-      filterTop =  filterTop - top
-      console.log(filterTop)
-    } else if (top >=  90) {
-      console.log(filterTop)
-      filterTop = 0
-      console.log(filterTop)
-    }
-    filters = document.querySelector('.filters')
-    filters.style = `top: ${filterTop}px`
+  let top, filterTop, filters
+  window.addEventListener('scroll', (e) => {
+    top = window.scrollY
+    filterTop = 100
+    if((top > 0) && (top < 90)) filterTop =  filterTop - top
+    if(top >=  90) filterTop = 10
+    document.querySelector('.filters').style = `top: ${filterTop}px`
+  })
 })
 
 class FiltersContainer extends Component {
 
    add(){
     let two = 1 + 1;
-  }
-
-  resizeContainer() {
-    containerRoot = document.querySelector(".filters-container");
-    console.log(window.outerHeight, window);
-  }
-
-  componentDidMount() {
-    this.resizeContainer()
-  }
-
-  componentDidUpdate() {
-    this.resizeContainer()
   }
 
   render() {
