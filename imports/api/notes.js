@@ -63,14 +63,12 @@ Meteor.methods({
     );
   },
   "notes.removeNote"(note) {
-    console.log("meteor delete method start", note);
     if (!this.userId) {
       throw new Meteor.Error(
         "notes.removeNote.not-authorized",
         "You are not allowed to remove notes for other users."
       );
     }
-    console.log("meteor delete method", note);
     Notes.remove({ _id: note }, 1);
   }
 });

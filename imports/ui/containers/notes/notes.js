@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
 import { Notes } from "../../../api/notes";
 import NotesEditor from "../../components/Notes/NoteEditor";
-import ModalHeader from '../headerModal/header';
+import ModalHeader from "../headerModal/header";
 
 class Note extends Component {
   constructor(props) {
@@ -49,11 +49,7 @@ class Note extends Component {
       });
       console.log("currentNote variable", currentNote._id);
     }
-    console.log(
-      "currentNoteId from state",
-      this.state.currentNoteId,
-      this.state
-    );
+    console.log("currentNoteId from state", this.state.currentNoteId);
   };
 
   publishNote = () => {
@@ -86,11 +82,13 @@ class Note extends Component {
     thisUrl = window.location.href;
     return (
       <div>
-          <ModalHeader 
-            publishNote={this.publishNote}
-            addNote={this.addNote}
-            removeNote={this.removeNote} />
-          <NotesEditor editorValue={this.editorValue} />
+        <ModalHeader
+          publishNote={this.publishNote}
+          addNote={this.addNote}
+          removeNote={this.removeNote}
+        />
+        <NotesEditor editorValue={this.editorValue} />
+        <div> this.state.editorValue </div>
       </div>
     );
   }
