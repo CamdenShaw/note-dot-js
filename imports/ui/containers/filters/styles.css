@@ -5,8 +5,9 @@
   left: -2.4vw;
   background: white;
   border-right: 2px solid navy;
-  max-height: 98vh;
+  min-height: calc(100vh - 90px);
   padding: 10px 2.5vw 10px 2.5vw;
+  display: flex;
 }
 
 .filters {
