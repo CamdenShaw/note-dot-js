@@ -2,22 +2,28 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
 import { Redirect } from "react-router-dom";
-import Note from './notes'
-import SingleNote from '../../components/Notes/SingleNote';
-import { Notes } from '../../../api/notes';
+import Note from "./notes";
+import SingleNote from "../../components/Notes/SingleNote";
+import { Notes } from "../../../api/notes";
 
-import './style.css'
+import "./style.css";
 
 class NotesListContainer extends Component {
   state = {};
   render() {
     return (
-      // Meteor.userId() ? 
+      // Meteor.userId() ?
       <div className="cards-container">
         {/* <Note /> */}
-        {this.props.notes.map((note, index) => (
-          <SingleNote className="card" key={index} item={note} />
-        ))}
+        {window.location.href === "http://localhost:3000/profile" ? (
+          this.props.notes.map((note, index) => (
+            <SingleNote className="card" key={index} item={note} />
+          ))
+        ) : (
+          this.props.publishedNotes.map((note, index) => (
+            <SingleNote className="card" key={index} item={note} />
+          ))
+        )}
       </div>
 
       // : <Redirect to="/login" />
@@ -40,6 +46,7 @@ export default withTracker(() => {
 
   return {
     currentUserId: Meteor.userId(),
-    notes: Notes.find({}).fetch()
+    notes: Notes.find({ owner: Meteor.userId() }).fetch(),
+    publishedNotes: Notes.find({ publish: true }).fetch()
   };
 })(NotesListContainer);
