@@ -30,6 +30,7 @@ class HeaderRight extends Component {
               addNote={this.props.addNote}
               removeNote={this.props.removeNote}
               R={true}
+              noteTitle={this.props.noteTitle} 
             />
           </div>
         ) : (

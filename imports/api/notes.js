@@ -24,7 +24,7 @@ Meteor.methods({
   //   }
   //   Notes.remove(notes._id);
   // },
-  "notes.addNote"(noteInput) {
+  "notes.addNote"(noteInput, titleInput, weekInput, topicInput) {
     if (!this.userId) {
       throw new Meteor.Error(
         "notes.addNote.not-authorized",
@@ -32,16 +32,16 @@ Meteor.methods({
       );
     }
     Notes.insert({
-      title: "",
+      title: titleInput,
       content: noteInput,
       owner: this.userId,
       createdOn: new Date(),
-      week: "",
+      week: weekInput,
       publish: false,
-      topic: ""
+      topic: topicInput
     });
   },
-  "notes.publishNote"(noteInput) {
+  "notes.publishNote"(noteInput, titleInput, weekInput, topicInput) {
     if (!this.userId) {
       throw new Meteor.Error(
         "notes.publishNote.not-authorized",
@@ -51,13 +51,13 @@ Meteor.methods({
     Notes.update(
       { _id: Notes._id },
       {
-        title: "",
+        title: titleInput,
         content: noteInput,
         owner: this.userId,
         createdOn: new Date(),
-        week: "",
+        week: weekInput,
         publish: true,
-        topic: ""
+        topic: topicInput
       },
       { upsert: true }
     );

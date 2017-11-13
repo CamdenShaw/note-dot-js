@@ -11,33 +11,53 @@ class Note extends Component {
     this.state = {
       isOpen: true,
       editorValue: "",
+      headerFormValue: {
+        topicValue: "none",
+        weekValue: 0,
+        titleValue: ""
+      },
       currentNoteId: ""
     };
     this.addNote = this.addNote.bind(this);
     this.removeNote = this.removeNote.bind(this);
   }
 
+  headerFormValue = (title, week = 0, topic = "none") => {
+    this.setState({
+      headerFormValue: {
+        titleValue: title,
+        weekValue: week,
+        topicValue: topic
+      }
+    });
+  };
+
   editorValue = text => {
     const noteValue = text;
     if (noteValue.length > 1 && noteValue !== this.state.editorValue) {
-      //   console.log(noteValue);
       this.setState({
         editorValue: noteValue
       });
     }
   };
 
-  // toggleModal = () => {
-  //   this.setState({
-  //     isOpen: !this.state.isOpen
-  //   });
-  // };
+  toggleModal = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
 
   addNote = event => {
     event.preventDefault();
+    let { titleValue, weekValue, topicValue } = this.state.headerFormValue;
     if (this.state.editorValue) {
-      //   console.log(this.state.editorValue);
-      Meteor.call("notes.addNote", this.state.editorValue);
+      Meteor.call(
+        "notes.addNote",
+        this.state.editorValue,
+        titleValue,
+        weekValue,
+        topicValue
+      );
       currentNote = Notes.findOne(
         {},
         { sort: { owner: Meteor.userId(), createdOn: -1, limit: 1 } }
@@ -47,48 +67,56 @@ class Note extends Component {
       this.setState({
         currentNoteId: `${currentNote._id}`
       });
-      console.log("currentNote variable", currentNote._id);
     }
     console.log("currentNoteId from state", this.state.currentNoteId);
   };
 
   publishNote = () => {
+    let { titleValue, weekValue, topicValue } = this.state.headerFormValue;
+    event.preventDefault();
     if (this.state.editorValue) {
-      //   console.log(this.state.editorValue);
-      Meteor.call("notes.publishNote", this.state.editorValue);
+      Meteor.call(
+        "notes.publishNote",
+        this.state.editorValue,
+        titleValue,
+        weekValue,
+        topicValue
+      );
     }
   };
+
+  componentWillMount() {
+    this.props.thisUrl = window.location.href;
+  }
 
   removeNote = () => {
     Meteor.call("notes.removeNote", `${this.state.currentNoteId}`);
   };
 
-  // componentWillMount() {
-  //   this.props.thisUrl = window.location.href;
-  //   // console.log("note render", this.props.thisUrl);
-  //   // console.log(this);
-  // }
-
-  // componentDidMount() {
-  //   // console.log(this);
-  // }
-
   componentDidUpdate() {
     this.noteInput = this.state.editorValue;
-    // console.log(this);
   }
 
   render() {
     thisUrl = window.location.href;
     return (
       <div>
-        <ModalHeader
+        {/*<ModalHeader
           publishNote={this.publishNote}
           addNote={this.addNote}
           removeNote={this.removeNote}
         />
         <NotesEditor editorValue={this.editorValue} />
-        <div> this.state.editorValue </div>
+        <div> this.state.editorValue </div>*/}
+        <button onClick={this.toggleModal}>New Note</button>
+        <ModalHeader
+          noteTitle={this.state.headerFormValue.titleValue}
+          headerFormValue={this.headerFormValue}
+          publishNote={this.publishNote}
+          addNote={this.addNote}
+          removeNote={this.removeNote}
+        />
+        <NotesEditor editorValue={this.editorValue} />
       </div>
     );
   }

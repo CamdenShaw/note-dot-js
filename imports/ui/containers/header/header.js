@@ -15,9 +15,8 @@ class HeaderContainer extends Component {
       <AppBar
         style={{ height: 90 }}
         iconStyleLeft={{ margin: 0, width: "70%" }}
-        iconElementLeft={
-          thisUrl === noteUrl ? <HeaderLeftSNP /> : <HeaderLeft />
-        }
+        iconElementLeft={ <HeaderLeft /> }
+        iconElementRight={<HeaderRight />}
         iconElementRight={<HeaderRight />}
         titleStyle={{ display: "none" }}
       />

@@ -11,7 +11,6 @@ import { Notes } from "../../../api/notes";
 class NotesListContainer extends Component {
   state = {};
   render() {
-    console.log(this.props.notes);
     return (
       // Meteor.userId() ?
       <div className="notesContainer">

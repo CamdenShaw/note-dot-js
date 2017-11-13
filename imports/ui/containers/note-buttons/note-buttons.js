@@ -12,12 +12,12 @@ const NoteButtons = props => {
   return (
     <div className="buttons-container">
       {props.R === true ? (
-        <PublishButton publishNote={props.publishNote} />
+        <PublishButton noteTitle={props.noteTitle} publishNote={props.publishNote} />
       ) : (
         <NotesListButton height="25px" />
       )}
       {props.R === true ? (
-        <SaveButton addNote={props.addNote} />
+        <SaveButton noteTitle={props.noteTitle} addNote={props.addNote} />
       ) : (
         <ProfileButton height="25px" />
       )}
