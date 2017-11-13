@@ -82,11 +82,26 @@
 }
 
 .card {
-  margin-top: 20px;
+  margin-top: 2.4vw;
+  min-width: 330px;
+  width: 48.8%;
+  max-width:48.8%;
+}
+
+@media screen and (max-width: 965px) {
+  .card {
+    width: 100%;
+    max-width: 450px;
+    margin: 2.4vw auto 0;
+  }
+}
+
+.card2 {
+  height: 100%;
 }
 
 .card-text {
-  max-height: 80px;
+  max-height: 112px;
   overflow: hidden;
   margin-bottom: 16px;
 }

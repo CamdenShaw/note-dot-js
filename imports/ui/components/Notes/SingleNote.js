@@ -8,50 +8,31 @@ import {
   CardText
 } from "material-ui/Card";
 import RaisedButton from "material-ui/RaisedButton";
+import Dialog from "material-ui/Dialog";
+import Note from "../../containers/notes/notes";
+import FlatButton from "material-ui/FlatButton";
+import PropTypes from "prop-types";
 
-// class NoteCard extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   clickity = className => {
-//     console.log("this event", className);
-//     // document.querySelector(".suck-it").addEventListener("click", () => {
-//     //   //   e.preventDefault;
-//     //   this.value;
-//     //   console.log("this this", this);
-//     // });
-//   };
-
-//   componenDidMount() {}
-
-//   render() {
-//     console.log("single note", this.props);
-//     return (
-//       <div onClick={() => this.clickity(this.props.item._id)}>
-//         <Card>
-//           <CardTitle
-//             title={this.props.item.title}
-//             subtitle={this.props.item.topic}
-//           />
-//           <CardText>{this.props.item.content}</CardText>
-//         </Card>
-//       </div>
-//     );
-//   }
-// }
 class NoteCard extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      open: false
+    };
   }
 
-  clickity = className => {
-    console.log(this);
-    console.log("this event", className);
-    document.querySelector(".suck-it").addEventListener("click", () => {
-      //   e.preventDefault;
-      this.value;
-      console.log("this this", this);
+  handleOpen = content => {
+    this.setState({ noteId: content });
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  toggleModal = () => {
+    this.setState({
+      isOpen: !this.state.open
     });
   };
 
@@ -62,19 +43,36 @@ class NoteCard extends Component {
   }
 
   render() {
+    actions = [
+      <FlatButton label="Close" primary={true} onClick={this.handleClose} />
+    ];
     title = `${("render", this.props.item.title)}`;
     return (
-      <div
-        className="suck-it"
-        onClick={() => this.clickity(this.props.item._id)}
-      >
-        <Card className="card">
+      <div className="card">
+        <Card
+          className="card2"
+          onClick={() => {
+            this.setState({ noteContent: this.props.item.content });
+            this.handleOpen(this.props.item.content);
+          }}
+        >
           <CardTitle title={title} subtitle={this.props.item.topic} />
           <CardText className={`ct-${title.replace(/\s/g, "-")} card-text`} />
         </Card>
+        <Dialog actions={actions} modal={true} open={this.state.open}>
+          <Note oldNote={this.props.item} />
+        </Dialog>
       </div>
     );
   }
 }
+
+NoteCard.defaultProps = {
+  editorInput: ""
+};
+
+NoteCard.PropTypes = {
+  editorInput: PropTypes.string
+};
 
 export default NoteCard;

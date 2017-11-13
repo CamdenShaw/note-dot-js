@@ -2,21 +2,21 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
 import { Redirect } from "react-router-dom";
-import Note from "./notes";
+import Note from './notes'
+import SingleNote from '../../components/Notes/SingleNote';
+import { Notes } from '../../../api/notes';
 
-import SingleNote from "../../components/Notes/SingleNote";
-
-import { Notes } from "../../../api/notes";
+import './style.css'
 
 class NotesListContainer extends Component {
   state = {};
   render() {
     return (
-      // Meteor.userId() ?
-      <div className="notesContainer">
+      // Meteor.userId() ? 
+      <div className="cards-container">
         {/* <Note /> */}
         {this.props.notes.map((note, index) => (
-          <SingleNote key={index} item={note} />
+          <SingleNote className="card" key={index} item={note} />
         ))}
       </div>
 

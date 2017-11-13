@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
 
-// import { Users } from '../../../api/students'
+import { Users } from "../../../api/students";
 
 class StudentSelector extends Component {
   state = {};
