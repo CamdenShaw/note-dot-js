@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { withTracker } from 'meteor/react-meteor-data'
 
-// import { Users } from '../../../api/students'
+import { Users } from "../../../api/students"
 
 class StudentSelector extends Component {
   state = {  }
   render() {
+    console.log(this.props)
     return (
       <select>
         <option value='' >Student</option>
@@ -15,13 +16,12 @@ class StudentSelector extends Component {
   }
 }
 
-// export default withTracker(() => { 
-//   Meteor.subscribe("users")
+export default withTracker(() => { 
+  Meteor.subscribe("users")
 
-//   return {
-//     userId: Users._id(),
-//     email: Users.find({}).fetch()
-//   }
-// })(StudentSelector)
+  return {
+    email: Meteor.users.find().fetch()
+  }
+})(StudentSelector)
 
-export default StudentSelector
+// export default StudentSelector

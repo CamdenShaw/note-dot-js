@@ -82,7 +82,17 @@
 }
 
 .card {
-  margin-top: 20px;
+  margin-top: 2.4vw;
+  min-width: 330px;
+  width: 48.8%;
+}
+
+@media screen and (max-width: 965px) {
+  .card {
+    width: 100%;
+    max-width: 600px;
+    margin: 2.4vw auto 0;
+  }
 }
 
 .card-text {

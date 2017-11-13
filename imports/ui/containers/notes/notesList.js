@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Redirect } from "react-router-dom";
 import Note from './notes'
-
 import SingleNote from '../../components/Notes/SingleNote';
-
 import { Notes } from '../../../api/notes';
+
+import './style.css'
 
 class NotesListContainer extends Component {
   state = {};
   render() {
+    console.log(this.props)
     return (
       // Meteor.userId() ? 
-      <div className="notesContainer">
+      <div className="cards-container">
         {/* <Note /> */}
       {this.props.notes.map((note, index) => (
         <SingleNote
