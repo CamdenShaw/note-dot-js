@@ -8,38 +8,6 @@ import {
   CardText
 } from "material-ui/Card";
 import RaisedButton from "material-ui/RaisedButton";
-
-// class NoteCard extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   clickity = className => {
-//     console.log("this event", className);
-//     // document.querySelector(".suck-it").addEventListener("click", () => {
-//     //   //   e.preventDefault;
-//     //   this.value;
-//     //   console.log("this this", this);
-//     // });
-//   };
-
-//   componenDidMount() {}
-
-//   render() {
-//     console.log("single note", this.props);
-//     return (
-//       <div onClick={() => this.clickity(this.props.item._id)}>
-//         <Card>
-//           <CardTitle
-//             title={this.props.item.title}
-//             subtitle={this.props.item.topic}
-//           />
-//           <CardText>{this.props.item.content}</CardText>
-//         </Card>
-//       </div>
-//     );
-//   }
-// }
 class NoteCard extends Component {
   constructor(props) {
     super(props);
@@ -47,11 +15,6 @@ class NoteCard extends Component {
 
   clickity = className => {
     console.log("this event", className);
-    // document.querySelector(".suck-it").addEventListener("click", () => {
-    //   e.preventDefault;
-    //   this.value;
-    //   console.log("this this", this);
-    // });
   };
 
   componentDidMount() {
@@ -63,12 +26,10 @@ class NoteCard extends Component {
   render() {
     title = `${("render", this.props.item.title)}`;
     return (
-      <div onClick={() => this.clickity(this.props.item._id)}>
-        <Card className="card">
+        <Card  className="card suck-it" onClick={() => this.clickity(this.props.item._id)} >
           <CardTitle title={title} subtitle={this.props.item.topic} />
           <CardText className={`ct-${title.replace(/\s/g, "-")} card-text`} />
         </Card>
-      </div>
     );
   }
 }

@@ -85,6 +85,7 @@
   margin-top: 2.4vw;
   min-width: 330px;
   width: 48.8%;
+  max-width:48.8%;
 }
 
 @media screen and (max-width: 965px) {
@@ -93,6 +94,10 @@
     max-width: 600px;
     margin: 2.4vw auto 0;
   }
+}
+
+.card2 {
+  height: 100%;
 }
 
 .card-text {

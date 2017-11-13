@@ -4,11 +4,9 @@ import { Meteor } from 'meteor/meteor'
 export const Users = new Mongo.Collection("student-emails")
 
 if(Meteor.isServer) {
-    Meteor.publish("students-emails", function usersPublication() {
-        // if(!this.userId) {
-        //     this.ready();
-        //     return
-        // }
-        return Meteor.users.find({}).fetch()
+    Meteor.publish("stduent-emails", function usersPublication(userIds) {
+        return Meteor.users.find({}).map(function(user){
+            user.profile.email
+        });
     })
 }

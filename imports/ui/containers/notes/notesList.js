@@ -17,7 +17,7 @@ class NotesListContainer extends Component {
       <div className="cards-container">
         {/* <Note /> */}
         {this.props.notes.map((note, index) => (
-          <SingleNote key={index} item={note} />
+          <SingleNote className="card" key={index} item={note} />
         ))}
       </div>
 
