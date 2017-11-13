@@ -11,7 +11,6 @@ import './style.css'
 class NotesListContainer extends Component {
   state = {};
   render() {
-    console.log(this.props)
     return (
       // Meteor.userId() ? 
       <div className="cards-container">

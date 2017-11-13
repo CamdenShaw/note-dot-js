@@ -91,7 +91,7 @@
 @media screen and (max-width: 965px) {
   .card {
     width: 100%;
-    max-width: 600px;
+    max-width: 450px;
     margin: 2.4vw auto 0;
   }
 }
@@ -101,7 +101,7 @@
 }
 
 .card-text {
-  max-height: 80px;
+  max-height: 112px;
   overflow: hidden;
   margin-bottom: 16px;
 }

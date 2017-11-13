@@ -49,16 +49,21 @@ class NotesEditor extends Component {
   }
 
   componentDidUpdate() {
-    // words = `${this.noteInput.refs.editor.innerText}`;
-    words = document.querySelector('.public-DraftEditor-content').innerHTML;
-    if (words !== this.state.currentInput) {
-      this.setState({
-        currentInput: words
-      });
-    } else {
-      null;
+    if(!this.props.oldNoteId){
+      words = document.querySelector('.public-DraftEditor-content').innerHTML;
+      if (words !== this.state.currentInput) {
+        this.setState({
+          currentInput: words
+        });
+      } else {
+        null;
+      }
+      this.props.editorValue = this.editorValue(this.state.currentInput);
     }
-    this.props.editorValue = this.editorValue(this.state.currentInput);
+  }
+
+  componentDidMount() {
+    // this.props.editorValue = this.editorValue(this.state.currentInput)
   }
 
   render() {

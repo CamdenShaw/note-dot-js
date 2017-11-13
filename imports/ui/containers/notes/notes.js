@@ -68,7 +68,6 @@ class Note extends Component {
         currentNoteId: `${currentNote._id}`
       });
     }
-    console.log("currentNoteId from state", this.state.currentNoteId);
   };
 
   publishNote = () => {
@@ -98,21 +97,29 @@ class Note extends Component {
   }
 
   componentDidMount() {
-    console.log('notes component mounted', this.props)
-    document.querySelector('.public-DraftEditor-content').innerHTML = `${this.props.editorInput}`
+    console.log(this.props.oldNote, this.props.currentUserId)
+    if(this.props.oldNote){
+      this.setState({
+        currentNoteId: this.props.oldNote._id
+      })
+      console.log(this.isItTrue)
+      document.querySelector('.DraftEditor-root').innerHTML = `<div class="DraftEditor-editorContainer ><div aria-describedby="placeholder-dfcso" class="notranslate publicDraftEditor-content" contenteditable="${this.isItTrue()}" role="textbox" spellcheck="true" style="outline: none; user-select: text; white-space: pre-wrap; word-wrap: break-word;">${this.props.oldNote.content}</div></div>`
+    }
+  }
+
+  isItTrue = () => {
+    if(this.props.currentUserId === this.props.oldNote.owner) return true
+    else return false
   }
 
   render() {
     thisUrl = window.location.href;
+    let oldNoteId = null
+    if(this.props.oldNote){
+      oldNoteId = this.props.oldNote._id
+    }
     return (
       <div>
-        {/*<ModalHeader
-          publishNote={this.publishNote}
-          addNote={this.addNote}
-          removeNote={this.removeNote}
-        />
-        <NotesEditor editorValue={this.editorValue} />
-        <div> this.state.editorValue </div>*/}
         <button onClick={this.toggleModal}>New Note</button>
         <ModalHeader
           noteTitle={this.state.headerFormValue.titleValue}
@@ -121,13 +128,14 @@ class Note extends Component {
           addNote={this.addNote}
           removeNote={this.removeNote}
         />
-        <NotesEditor editorValue={this.editorValue} />
+        <NotesEditor
+           editorValue={this.editorValue} 
+           oldNoteId={oldNoteId}
+        />
       </div>
     );
   }
 }
-
-// export default Note
 
 Note.defaultProps = {
   notes: []

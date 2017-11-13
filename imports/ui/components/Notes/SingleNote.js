@@ -17,13 +17,11 @@ class NoteCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
-      noteContent: this.props.item.content
+      open: false
     }
   }
 
   handleOpen = (content) => {
-    console.log(content);
     this.setState({ noteId: content })
     this.setState({ open: true })
   }
@@ -41,9 +39,6 @@ class NoteCard extends Component {
   componentDidMount() {
     document.querySelector(
       `.ct-${this.props.item.title.replace(/\s/g, "-")}`
-    ).innerHTML = null;
- document.querySelector(
-      `.ct-${this.props.item.title.replace(/\s/g, "-")}`
     ).innerHTML = this.props.item.content;
   }
 
@@ -56,7 +51,6 @@ class NoteCard extends Component {
       />
     ]
     title = `${("render", this.props.item.title)}`;
-    console.log(this.props.item.content)
     return (
       <div className="card" >
         <Card  className="card2" onClick={() => {
@@ -71,7 +65,7 @@ class NoteCard extends Component {
           modal={true}
           open={this.state.open}
           >
-          <Note editorInput={this.props.item.content} />
+          <Note oldNote={this.props.item} />
         </Dialog>
       </div>
     );
