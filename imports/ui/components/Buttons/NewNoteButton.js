@@ -42,6 +42,9 @@ class NewNoteButton extends Component {
           actions={actions}
           modal={true}
           open={this.state.open}
+          bodyStyle={{minWidth: 680}}
+          overlayStyle={{minWidth: '100%'}}
+          contentStyle={{width: 'auto', height: '90%'}}
         >
           <Note />
         </Dialog>

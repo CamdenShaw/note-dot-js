@@ -127,7 +127,6 @@ class Note extends Component {
     }
     return (
       <div>
-        <button onClick={this.toggleModal}>New Note</button>
         <ModalHeader
           noteTitle={this.state.headerFormValue.titleValue}
           headerFormValue={this.headerFormValue}

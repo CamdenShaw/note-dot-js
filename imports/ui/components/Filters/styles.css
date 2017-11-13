@@ -63,7 +63,6 @@ input:checked + .slider:before {
 }
 
 select {
-    padding-left: 50%;
     padding-right: 37px;
     appearance: none;
     -moz-appearance: none;

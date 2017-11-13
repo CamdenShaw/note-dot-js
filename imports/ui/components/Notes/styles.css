@@ -40,6 +40,8 @@
 
 .RichEditor-editor .public-DraftEditor-content {
   min-height: 200px;
+  max-height: 250px;
+  overflow-y: scroll;
 }
 
 .RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {

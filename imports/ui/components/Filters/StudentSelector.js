@@ -10,6 +10,8 @@ class StudentSelector extends Component {
   setPadding() {
     count = 0
     selectField = document.querySelector(".student-select")
+    parent = selectField.parentNode
+    console.log(parent)
     count = selectField.value.length
     newPadding = (selectField.offsetWidth * .5) - (count * 5)
     if(newPadding < 5) newPadding = 5

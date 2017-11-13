@@ -9,12 +9,18 @@ class TopicSelector extends Component {
   }
 
 
-  setPadding() {
+  setPadding = () => {
     count = 0
-    selectField = document.querySelector(".topic-select")
+    select = ".topic-select"
+    if(this.props.namedClass !== null) select = `.topic-select.${this.props.namedClass}`
+    selectField = document.querySelector(select)
+    parent = selectField.parentNode
+    console.log(parent.className)
     count = selectField.value.length
-    newPadding = (selectField.offsetWidth * .5) - (count * 5)
-    document.querySelector(".topic-select").style.paddingLeft = `${newPadding}px`
+    if(parent.className === "header-left-snp") newPadding = (selectField.offsetWidth * .4) - (count * 5)
+    else newPadding = (selectField.offsetWidth * .5) - (count * 5)
+    if(newPadding < 5) newPadding = 1
+    document.querySelector(select).style.paddingLeft = `${newPadding}px`
   }
 
   componentDidUpdate() {

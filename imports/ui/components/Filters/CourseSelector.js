@@ -8,6 +8,7 @@ class CourseSelector extends Component {
     selectField = document.querySelector(".course-select")
     count = selectField.value.length
     newPadding = (selectField.offsetWidth * .5) - (count * 5)
+    if(newPadding < 5) newPadding = 5
     document.querySelector(".course-select").style.paddingLeft = `${newPadding}px`
   }
 
