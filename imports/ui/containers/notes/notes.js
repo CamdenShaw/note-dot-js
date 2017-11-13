@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
 import { Notes } from "../../../api/notes";
 import NotesEditor from "../../components/Notes/NoteEditor";
-import ModalHeader from '../headerModal/header';
+import ModalHeader from "../headerModal/header";
 
 class Note extends Component {
   constructor(props) {
@@ -12,9 +12,9 @@ class Note extends Component {
       isOpen: true,
       editorValue: "",
       headerFormValue: {
-        topicValue: 'none',
+        topicValue: "none",
         weekValue: 0,
-        titleValue: ''
+        titleValue: ""
       },
       currentNoteId: ""
     };
@@ -22,17 +22,16 @@ class Note extends Component {
     this.removeNote = this.removeNote.bind(this);
   }
 
-  headerFormValue = ( title, week = 0, topic = 'none' ) => {
-
+  headerFormValue = (title, week = 0, topic = "none") => {
     this.setState({
       headerFormValue: {
         titleValue: title,
         weekValue: week,
         topicValue: topic
       }
-    })
-  }
-  
+    });
+  };
+
   editorValue = text => {
     const noteValue = text;
     if (noteValue.length > 1 && noteValue !== this.state.editorValue) {
@@ -42,17 +41,23 @@ class Note extends Component {
     }
   };
 
-  // toggleModal = () => {
-  //   this.setState({
-  //     isOpen: !this.state.isOpen
-  //   });
-  // };
+  toggleModal = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
 
   addNote = event => {
     event.preventDefault();
-    let { titleValue, weekValue, topicValue } = this.state.headerFormValue
+    let { titleValue, weekValue, topicValue } = this.state.headerFormValue;
     if (this.state.editorValue) {
-      Meteor.call("notes.addNote", this.state.editorValue, titleValue, weekValue, topicValue);
+      Meteor.call(
+        "notes.addNote",
+        this.state.editorValue,
+        titleValue,
+        weekValue,
+        topicValue
+      );
       currentNote = Notes.findOne(
         {},
         { sort: { owner: Meteor.userId(), createdOn: -1, limit: 1 } }
@@ -63,20 +68,27 @@ class Note extends Component {
         currentNoteId: `${currentNote._id}`
       });
     }
+    console.log("currentNoteId from state", this.state.currentNoteId);
   };
 
   publishNote = () => {
-    let { titleValue, weekValue, topicValue } = this.state.headerFormValue
+    let { titleValue, weekValue, topicValue } = this.state.headerFormValue;
     event.preventDefault();
     if (this.state.editorValue) {
-      Meteor.call("notes.publishNote", this.state.editorValue, titleValue, weekValue, topicValue);
+      Meteor.call(
+        "notes.publishNote",
+        this.state.editorValue,
+        titleValue,
+        weekValue,
+        topicValue
+      );
     }
   };
 
   componentWillMount() {
     this.props.thisUrl = window.location.href;
   }
-  
+
   removeNote = () => {
     Meteor.call("notes.removeNote", `${this.state.currentNoteId}`);
   };
@@ -89,14 +101,22 @@ class Note extends Component {
     thisUrl = window.location.href;
     return (
       <div>
+        {/*<ModalHeader
+          publishNote={this.publishNote}
+          addNote={this.addNote}
+          removeNote={this.removeNote}
+        />
+        <NotesEditor editorValue={this.editorValue} />
+        <div> this.state.editorValue </div>*/}
         <button onClick={this.toggleModal}>New Note</button>
-          <ModalHeader
-            noteTitle={this.state.headerFormValue.titleValue}
-            headerFormValue={ this.headerFormValue }
-            publishNote={this.publishNote}
-            addNote={this.addNote}
-            removeNote={this.removeNote} />
-          <NotesEditor editorValue={this.editorValue} />
+        <ModalHeader
+          noteTitle={this.state.headerFormValue.titleValue}
+          headerFormValue={this.headerFormValue}
+          publishNote={this.publishNote}
+          addNote={this.addNote}
+          removeNote={this.removeNote}
+        />
+        <NotesEditor editorValue={this.editorValue} />
       </div>
     );
   }
