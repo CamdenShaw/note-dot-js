@@ -4,6 +4,7 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Notes } from "../../../api/notes";
 import NotesEditor from "../../components/Notes/NoteEditor";
 import ModalHeader from "../headerModal/header";
+import NoteCard from "../../components/Notes/SingleNote";
 
 class Note extends Component {
   constructor(props) {
@@ -16,11 +17,14 @@ class Note extends Component {
         weekValue: 0,
         titleValue: ""
       },
-      currentNoteId: ""
+      currentNoteId: "",
+      allUsers: ""
     };
     this.addNote = this.addNote.bind(this);
     this.removeNote = this.removeNote.bind(this);
   }
+
+  listUsers = () => {};
 
   headerFormValue = (title, week = 0, topic = "none") => {
     this.setState({
@@ -99,6 +103,8 @@ class Note extends Component {
 
   render() {
     thisUrl = window.location.href;
+    console.log(this.props.allUsers[0].emails.address);
+    // console.log(Notes.find({ _id: this.props.item._id }).fetch());
     return (
       <div>
         {/*<ModalHeader
@@ -117,6 +123,7 @@ class Note extends Component {
           removeNote={this.removeNote}
         />
         <NotesEditor editorValue={this.editorValue} />
+        <div> Notes.find().fetch() </div>
       </div>
     );
   }
@@ -135,8 +142,10 @@ Note.PropTypes = {
 
 export default withTracker(() => {
   Meteor.subscribe("notes");
+  Meteor.subscribe("allUsers");
   return {
     currentUserId: Meteor.userId(),
-    notes: Notes.find({}).fetch()
+    notes: Notes.find({}).fetch(),
+    allUsers: Meteor.users.find().fetch()
   };
 })(Note);

@@ -1,10 +1,13 @@
-import Mongo from 'meteor/mongo'
-import Meteor from 'meteor/meteor'
+import { Mongo } from "meteor/mongo";
+import { Meteor } from "meteor/meteor";
 
-export const Users = new Mongo.Collection("users")
-
-if(Meteor.isServer) {
-    Meteor.publish("users", function usersPublication() {
-        return Users.find();
-    })
-}
+Meteor.publish("allUsers", function() {
+  return Meteor.users.find(
+    {},
+    {
+      // specific fields to return
+      "profile.email": 1,
+      "profile.name": 1
+    }
+  );
+});

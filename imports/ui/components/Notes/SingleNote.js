@@ -46,12 +46,13 @@ class NoteCard extends Component {
   }
 
   clickity = className => {
+    console.log(this);
     console.log("this event", className);
-    // document.querySelector(".suck-it").addEventListener("click", () => {
-    //   e.preventDefault;
-    //   this.value;
-    //   console.log("this this", this);
-    // });
+    document.querySelector(".suck-it").addEventListener("click", () => {
+      //   e.preventDefault;
+      this.value;
+      console.log("this this", this);
+    });
   };
 
   componentDidMount() {
@@ -63,7 +64,10 @@ class NoteCard extends Component {
   render() {
     title = `${("render", this.props.item.title)}`;
     return (
-      <div onClick={() => this.clickity(this.props.item._id)}>
+      <div
+        className="suck-it"
+        onClick={() => this.clickity(this.props.item._id)}
+      >
         <Card className="card">
           <CardTitle title={title} subtitle={this.props.item.topic} />
           <CardText className={`ct-${title.replace(/\s/g, "-")} card-text`} />
