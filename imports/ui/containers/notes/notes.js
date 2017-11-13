@@ -97,6 +97,11 @@ class Note extends Component {
     this.noteInput = this.state.editorValue;
   }
 
+  componentDidMount() {
+    console.log('notes component mounted', this.props)
+    document.querySelector('.public-DraftEditor-content').innerHTML = `${this.props.editorInput}`
+  }
+
   render() {
     thisUrl = window.location.href;
     return (

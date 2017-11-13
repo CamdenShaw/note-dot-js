@@ -37,15 +37,15 @@ class NewNoteButton extends Component {
     ];
     return (
       <div>
-        <RaisedButton label="Add Note" primary onClick={this.handleOpen}/>
-          <Dialog
-            actions={actions}
-            modal={true}
-            open={this.state.open}
-          >
-            <Note/>
-          </Dialog>
-        </div>
+        <RaisedButton label="Add Note" primary onClick={this.handleOpen} />
+        <Dialog
+          actions={actions}
+          modal={true}
+          open={this.state.open}
+        >
+          <Note />
+        </Dialog>
+      </div>
     );
   }
 }
