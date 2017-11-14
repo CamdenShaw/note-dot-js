@@ -8,22 +8,8 @@ if (Meteor.isServer) {
     return Notes.find();
   });
 }
-// if (Meteor.isServer) {
-//   Meteor.publish("notes", function notesPublication() {
-//     return Notes.find({ owner: this.userId });
-//   });
-// }
 
 Meteor.methods({
-  // "notes.removeNote"(notes) {
-  //   if (notes.owner !== this.userId) {
-  //     throw new Meteor.Error(
-  //       "notes.removeNote.not-authorized",
-  //       "You are not allowed to remove other users notes."
-  //     );
-  //   }
-  //   Notes.remove(notes._id);
-  // },
   "notes.addNote"(noteInput, titleInput, weekInput, topicInput) {
     if (!this.userId) {
       throw new Meteor.Error(
@@ -43,7 +29,7 @@ Meteor.methods({
       upVoteBool: [{userId: none, boolean: false}]
     });
   },
-  "notes.publishNote"(noteInput, titleInput, weekInput, topicInput, noteId) {
+  "notes.publishNote"(noteInput, titleInput, weekInput, topicInput) {
     if (!this.userId) {
       throw new Meteor.Error(
         "notes.publishNote.not-authorized",
@@ -51,7 +37,7 @@ Meteor.methods({
       );
     }
     Notes.update(
-      { _id: noteId },
+      { _id: Notes._id },
       {
         title: titleInput,
         content: noteInput,

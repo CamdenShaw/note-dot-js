@@ -14,12 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 class FiltersContainer extends Component {
+  constructor(props) {
+    super(props)
+  }
 
    add(){
     let two = 1 + 1;
   }
 
   render() {
+
+    console.log(this.props)
+    
     return (
       <div 
         style={{
@@ -32,10 +38,10 @@ class FiltersContainer extends Component {
         <div className="filters">
           <h3>FILTERS</h3>
           <form className="filters-form" >
-            <StudentSelector />
-            <TopicSelector topicValue={this.add} />
-            <WeekSelector weekValue={this.add} />
-            <UpVotes />
+            <StudentSelector studentValue={this.props.findFilters} />
+            <TopicSelector topicValue={this.props.findFilters} namedClass={"topic-left"} />
+            <WeekSelector weekValue={this.props.findFilters} namedClass={"week-left"} />
+            <UpVotes upVotes={this.props.upVotes} />
           </form>
         </div>
       </div>

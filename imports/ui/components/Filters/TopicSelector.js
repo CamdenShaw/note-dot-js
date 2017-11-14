@@ -22,6 +22,11 @@ class TopicSelector extends Component {
     document.querySelector(select).style.paddingLeft = `${newPadding}px`
   }
 
+  onChange = () => {
+    this.setPadding()
+    this.selectValue(this.props.namedClass)
+  }
+
   componentDidUpdate() {
     this.setPadding()
   }
@@ -33,8 +38,8 @@ class TopicSelector extends Component {
 
   render() {
     return (
-      <select id="topic" name="topic" className={`topic-select ${this.props.namedClass}`} onBlur={() => setTimeout(this.selectValue(this.props.namedClass), 1) } onChange={this.setPadding} >
-        <option value='Topic' >Topic</option>
+      <select id="topic" name="topic" className={`topic-select ${this.props.namedClass}`}onChange={this.onChange} >
+        <option value='topic' >Topic</option>
         <option value='styles' >Styles</option>
         <option value='vanilla-js' >Vanilla.js</option>
         <option value='react' >React</option>

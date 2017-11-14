@@ -5,9 +5,12 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Users } from "../../../api/students";
   
 class StudentSelector extends Component {
-  state = {};
-
-  setPadding() {
+  constructor(props){
+    super(props)
+    state = {};
+    this.studentValue = this.props.studentValue.bind(this)
+  }
+  setPadding = () => {
     count = 0
     selectField = document.querySelector(".student-select")
     parent = selectField.parentNode
@@ -17,18 +20,19 @@ class StudentSelector extends Component {
     document.querySelector(".student-select").style.paddingLeft = `${newPadding}px`
   }
 
-  changeSelect() {
-    this.setPadding
-  }
-
   componentDidMount() {
     this.setPadding()
   }
 
+  onClick = () => {
+    this.setPadding()
+    this.studentValue("student-select")
+  }
+
   render() {
     return (
-      <select className="student-select" onChange={this.setPadding}>
-        <option value="Student" >Student</option>
+      <select className="student-select" onChange={this.onClick}>
+        <option value="student" >Student</option>
         {this.props.allUsers.map((user, index) => (
           <option  key={index} className={`student-${index}`} value={user.emails[0].address}>
             {user.emails[0].address}

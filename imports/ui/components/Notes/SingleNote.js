@@ -19,7 +19,8 @@ class NoteCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      random: ''
     };
   }
 
@@ -38,10 +39,37 @@ class NoteCard extends Component {
     });
   };
 
+  setFilters() {
+    console.log(this.props)
+    console.log(this.props.filters.filterType, '===', null)
+    if(this.props.filters.filterType !== null){
+      let {filters, filterType} = this.props.filters
+      console.log(this.props.item[filterType], '===', filters)
+      if (`${filters}` !== `${this.props.item[filterType]}`) {
+        document.querySelector('.card').style = "display: none"
+      } else {
+        document.querySelector('.card').style = "display: block"
+      }
+    }
+  }
+
+  componentDidUpdate() {
+    this.setFilters()
+    setTimeout(() => {
+      document.querySelector(
+        `.ct-${this.props.item.title.replace(/\s/g, "-")}`
+      ).innerHTML = this.props.item.content;
+    }, 1)
+
+  }
+
   componentDidMount() {
-    document.querySelector(
-      `.ct-${this.props.item.title.replace(/\s/g, "-")}`
-    ).innerHTML = this.props.item.content;
+    this.setFilters()
+    setTimeout(() => {
+      document.querySelector(
+        `.ct-${this.props.item.title.replace(/\s/g, "-")}`
+      ).innerHTML = this.props.item.content;
+    }, 1)
   }
 
   render() {
@@ -59,7 +87,7 @@ class NoteCard extends Component {
           }}
         >
           <CardTitle title={title} subtitle={this.props.item.topic} />
-          <CardText className={`ct-${title.replace(/\s/g, "-")} card-text`} />
+          <CardText className={`ct-${this.props.item.title.replace(/\s/g, "-")} card-text`} />
         </Card>
         <Dialog
           actions={actions}

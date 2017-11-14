@@ -14,10 +14,7 @@ const Layout = ({ children }) => {
   return (
     <div className="app-wrapper">
       { thisUrl !== loginUrl && thisUrl !== noteUrl && <HeaderContainer thisUrl={thisUrl} /> }
-      <div className="app-content">
-        { thisUrl !== loginUrl && thisUrl !== noteUrl && <Filters thisUrl={thisUrl} /> }
-        {children}
-      </div>
+      {children}
       <div className="app-footer">
       </div>  
     </div>
