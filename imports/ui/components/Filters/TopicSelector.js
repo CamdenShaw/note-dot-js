@@ -15,7 +15,6 @@ class TopicSelector extends Component {
     if(this.props.namedClass !== null) select = `.topic-select.${this.props.namedClass}`
     selectField = document.querySelector(select)
     parent = selectField.parentNode
-    console.log(parent.className)
     count = selectField.value.length
     if(parent.className === "header-left-snp") newPadding = (selectField.offsetWidth * .4) - (count * 5)
     else newPadding = (selectField.offsetWidth * .5) - (count * 5)
@@ -34,7 +33,7 @@ class TopicSelector extends Component {
 
   render() {
     return (
-      <select className={`topic-select ${this.props.namedClass}`} onBlur={() => setTimeout(this.selectValue(this.props.namedClass), 1) } onChange={this.setPadding} >
+      <select id="topic" name="topic" className={`topic-select ${this.props.namedClass}`} onBlur={() => setTimeout(this.selectValue(this.props.namedClass), 1) } onChange={this.setPadding} >
         <option value='Topic' >Topic</option>
         <option value='styles' >Styles</option>
         <option value='vanilla-js' >Vanilla.js</option>

@@ -7,12 +7,14 @@ import HeaderRight from "./headerRight";
 import "./styles.css";
 
 class ModalHeader extends Component {
+  oldNote = null
   render() {
+    if(this.props.oldNote) oldNote = this.props.oldNote;
     return (
       <AppBar
         style={{ height: 90 }}
         iconStyleLeft={{margin: 0, width: '70%'}}
-        iconElementLeft={<HeaderLeft headerFormValue={this.props.headerFormValue} />}
+        iconElementLeft={<HeaderLeft headerFormValue={this.props.headerFormValue} oldNote={oldNote} />}
         iconElementRight={<HeaderRight 
             noteTitle={this.props.noteTitle}
             publishNote={this.props.publishNote}

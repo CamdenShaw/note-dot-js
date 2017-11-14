@@ -101,12 +101,10 @@ class Note extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.oldNote, this.props.currentUserId);
     if (this.props.oldNote) {
       this.setState({
         currentNoteId: this.props.oldNote._id
       });
-      console.log(this.isItTrue);
       document.querySelector(
         ".DraftEditor-root"
       ).innerHTML = `<div class="DraftEditor-editorContainer ><div aria-describedby="placeholder-dfcso" class="notranslate publicDraftEditor-content" contenteditable="${this.isItTrue()}" role="textbox" spellcheck="true" style="outline: none; user-select: text; white-space: pre-wrap; word-wrap: break-word;">${this
@@ -122,8 +120,10 @@ class Note extends Component {
   render() {
     thisUrl = window.location.href;
     let oldNoteId = null;
+    let oldNote = null;
     if (this.props.oldNote) {
       oldNoteId = this.props.oldNote._id;
+      oldNote = this.props.oldNote;
     }
     return (
       <div>
@@ -133,6 +133,7 @@ class Note extends Component {
           publishNote={this.publishNote}
           addNote={this.addNote}
           removeNote={this.removeNote}
+          oldNote={oldNote}
         />
         <NotesEditor editorValue={this.editorValue} oldNoteId={oldNoteId} />
       </div>

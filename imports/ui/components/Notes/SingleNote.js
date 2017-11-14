@@ -13,6 +13,8 @@ import Note from "../../containers/notes/notes";
 import FlatButton from "material-ui/FlatButton";
 import PropTypes from "prop-types";
 
+import './styles.css'
+
 class NoteCard extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +61,14 @@ class NoteCard extends Component {
           <CardTitle title={title} subtitle={this.props.item.topic} />
           <CardText className={`ct-${title.replace(/\s/g, "-")} card-text`} />
         </Card>
-        <Dialog actions={actions} modal={true} open={this.state.open}>
+        <Dialog
+          actions={actions}
+          modal={true}
+          open={this.state.open}
+          bodyStyle={{minWidth: 680}}
+          overlayStyle={{minWidth: '100%'}}
+          contentStyle={{width: 'auto', height: '90%'}}
+        >
           <Note oldNote={this.props.item} />
         </Dialog>
       </div>

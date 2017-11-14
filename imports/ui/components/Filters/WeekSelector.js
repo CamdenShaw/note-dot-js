@@ -7,13 +7,19 @@ class WeekSelector extends Component {
      this.selectValue = this.props.weekValue.bind(this)
   }
 
+  // addWeek() {
+  //   addWeekSelect = document.querySelector('.week-select')
+  //   console.log(addWekSelect, this.props.oldNote)
+  //   document.queryCommandEnabled('.week-select')[this.props.oldNote].selected = true
+  //   weekSelect.innerHTML = this.props.oldNote
+  // }
+
   setPadding = () => {
     count = 0
     select = ".week-select"
     if(this.props.namedClass !== null) select = `.week-select.${this.props.namedClass}`
     selectField = document.querySelector(select)
     parent = selectField.parentNode
-    console.log(parent.className)
     count = selectField.value.length
     if(newPadding < 5) newPadding = 5
     if(parent.className === "header-left-snp") newPadding = (selectField.offsetWidth * .4) - (count * 5)
@@ -26,12 +32,13 @@ class WeekSelector extends Component {
   // }
 
   componentDidMount() {
+    // this.props.oldNote !==null && this.addWeek()
     this.setPadding()
   }
 
   render() {
     return (
-      <select onChange={() => setTimeout(this.setPadding(), 1)} className={`week-select ${this.props.namedClass}`} onBlur={() => (this.selectValue(this.props.namedClass))} >
+      <select id="week" name="week" onChange={() => setTimeout(this.setPadding(), 1)} className={`week-select ${this.props.namedClass}`} onBlur={() => (this.selectValue(this.props.namedClass))} >
         <option value='Week' >Week</option>
         <option value='one' >One</option>
         <option value='two' >Two</option>

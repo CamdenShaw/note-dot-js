@@ -39,7 +39,36 @@ class HeaderLeft extends Component {
     this.headerFormValue(title, week, topic)
   }
 
+
+  addTitle() {
+    document.querySelector('.title-input').value = this.props.oldNote.title;
+    document.querySelector('.title-input').placeholder = this.props.oldNote.title;
+  }
+
+  addWeek() {
+    document.querySelector('.header-left-snp').week[this.props.oldNote.week].selected = true
+  }
+
+  addTopic() {
+    document.querySelector('.header-left-snp').topic[this.props.oldNote.week].selected = true
+  }
+
+  componentDidMount() {
+    if(this.props.oldNote !== null) {
+      this.addTitle()
+      this.addWeek()
+      this.addTopic()
+    }
+  }
+
   render(){
+    let week = null
+    let topic = null
+    if(this.props.oldNote){
+      console.log(this.props.oldNote)
+      week = this.props.oldNote.week
+      topic = this.props.oldNote.topic
+    }
     return (
       <form
         onBlur={() => setTimeout(this.submitted, 1)}
@@ -53,8 +82,8 @@ class HeaderLeft extends Component {
           className="title-input" 
           placeholder="Title" 
         />
-        <WeekSelector namedClass={"week"} weekValue={this.selectValue} />
-        <TopicSelector namedClass={"topic"} topicValue={this.selectValue} />
+        <WeekSelector oldNote={week} namedClass={"week"} weekValue={this.selectValue} />
+        <TopicSelector oldNote={topic} namedClass={"topic"} topicValue={this.selectValue} />
       </form>
     )
   }

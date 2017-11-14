@@ -107,3 +107,10 @@
   overflow: hidden;
   margin-bottom: 16px;
 }
+
+
+.RichEditor-editor{
+  min-height: 200px;
+  max-height: 250px;
+  overflow-y: scroll;
+}
