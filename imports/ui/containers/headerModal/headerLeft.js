@@ -46,11 +46,17 @@ class HeaderLeft extends Component {
   }
 
   addWeek() {
-    document.querySelector('.header-left-snp').week[this.props.oldNote.week].selected = true
+    formElement = document.querySelector('.header-left-snp')
+    for(i = 0; formElement.week.length > i; i++){
+      if(formElement.week[i].value === this.props.oldNote.week ) formElement.week[i].selected = true
+    }
   }
 
   addTopic() {
-    document.querySelector('.header-left-snp').topic[this.props.oldNote.week].selected = true
+    formElement = document.querySelector('.header-left-snp')
+    for(i = 0; formElement.topic.length > i; i++) {
+      if(formElement.topic[i].value === this.props.oldNote.topic) formElement.topic[i].selected = true
+    }
   }
 
   componentDidMount() {
