@@ -10,7 +10,6 @@ class ModalHeader extends Component {
   render() {
     oldNote = null
     if(this.props.oldNote) oldNote = this.props.oldNote;
-    console.log(oldNote)
     return (
       <AppBar
         style={{ height: 90 }}

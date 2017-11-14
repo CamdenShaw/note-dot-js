@@ -68,13 +68,6 @@ class HeaderLeft extends Component {
   }
 
   render(){
-    let week = null
-    let topic = null
-    if(this.props.oldNote){
-      console.log(this.props.oldNote)
-      week = this.props.oldNote.week
-      topic = this.props.oldNote.topic
-    }
     return (
       <form
         onBlur={() => setTimeout(this.submitted, 1)}
@@ -88,8 +81,8 @@ class HeaderLeft extends Component {
           className="title-input" 
           placeholder="Title" 
         />
-        <WeekSelector oldNote={week} namedClass={"week"} weekValue={this.selectValue} />
-        <TopicSelector oldNote={topic} namedClass={"topic"} topicValue={this.selectValue} />
+        <WeekSelector namedClass={"week"} weekValue={this.selectValue} />
+        <TopicSelector namedClass={"topic"} topicValue={this.selectValue} />
       </form>
     )
   }

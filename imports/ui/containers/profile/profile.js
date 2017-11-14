@@ -7,10 +7,7 @@ class Profile extends Component {
   render() {
     this.props.thisUrl = window.location.href;
     return (
-      <div className="profile-container">
-        {/* <Note /> */}
         <NoteListContainer />
-      </div>
     );
   }
 }

@@ -46,7 +46,7 @@ export default withTracker(() => {
 
   return {
     currentUserId: Meteor.userId(),
-    notes: Notes.find({ owner: Meteor.userId() }).fetch(),
-    publishedNotes: Notes.find({ publish: true }).fetch()
+    notes: Notes.find({ owner: Meteor.userId() }, {sort: {createdOn: -1}}).fetch(),
+    publishedNotes: Notes.find({ publish: true }, {sort:{createdOn: -1}}).fetch()
   };
 })(NotesListContainer);

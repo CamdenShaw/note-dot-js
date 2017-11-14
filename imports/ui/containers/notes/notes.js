@@ -18,7 +18,8 @@ class Note extends Component {
         titleValue: ""
       },
       currentNoteId: "",
-      allUsers: ""
+      allUsers: "",
+      noteOwner: ""
     };
     this.addNote = this.addNote.bind(this);
     this.removeNote = this.removeNote.bind(this);
@@ -69,22 +70,29 @@ class Note extends Component {
     }
     if (currentNote) {
       this.setState({
-        currentNoteId: `${currentNote._id}`
+        currentNoteId: `${currentNote._id}`,
+        noteOwner: `${currentNote.owner}`
       });
     }
   };
 
   publishNote = () => {
-    let { titleValue, weekValue, topicValue } = this.state.headerFormValue;
-    event.preventDefault();
-    if (this.state.editorValue) {
-      Meteor.call(
-        "notes.publishNote",
-        this.state.editorValue,
-        titleValue,
-        weekValue,
-        topicValue
-      );
+    existingNote = Notes.findOne(
+      {},
+      { sort: { _id: this.state.currentNoteId}}
+    )
+    if(existingNote){
+      let { titleValue, weekValue, topicValue } = this.state.headerFormValue;
+      event.preventDefault();
+      if (this.state.editorValue) {
+        Meteor.call(
+          "notes.publishNote",
+          this.state.editorValue,
+          titleValue,
+          weekValue,
+          topicValue
+        );
+      }
     }
   };
 
@@ -93,7 +101,8 @@ class Note extends Component {
   }
 
   removeNote = () => {
-    Meteor.call("notes.removeNote", `${this.state.currentNoteId}`);
+    console.log(this.props.oldNote.owner)
+    Meteor.call("notes.removeNote", `${this.state.currentNoteId}`, `${this.props.oldNote.owner}`);
   };
 
   componentDidUpdate() {

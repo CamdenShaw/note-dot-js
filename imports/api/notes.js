@@ -62,8 +62,9 @@ Meteor.methods({
       { upsert: true }
     );
   },
-  "notes.removeNote"(note) {
-    if (!this.userId) {
+  "notes.removeNote"(note, owner) {
+    console.log(owner)
+    if (this.userId !== owner) {
       throw new Meteor.Error(
         "notes.removeNote.not-authorized",
         "You are not allowed to remove notes for other users."
