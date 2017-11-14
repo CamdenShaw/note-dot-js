@@ -17,7 +17,6 @@ class HeaderContainer extends Component {
         iconStyleLeft={{ margin: 0, width: "70%" }}
         iconElementLeft={ <HeaderLeft /> }
         iconElementRight={<HeaderRight />}
-        iconElementRight={<HeaderRight />}
         titleStyle={{ display: "none" }}
       />
     );

@@ -8,7 +8,7 @@ import "./styles.css";
 
 class ModalHeader extends Component {
   render() {
-    oldNote = null
+    oldNote = {owner: null}
     if(this.props.oldNote) oldNote = this.props.oldNote;
     return (
       <AppBar
@@ -20,6 +20,7 @@ class ModalHeader extends Component {
             publishNote={this.props.publishNote}
             addNote={this.props.addNote}
             removeNote={this.props.removeNote}
+            oldNote={oldNote}
         />}
         titleStyle={{ display: "none" }}
       />

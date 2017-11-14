@@ -90,7 +90,8 @@ class Note extends Component {
           this.state.editorValue,
           titleValue,
           weekValue,
-          topicValue
+          topicValue,
+          this.state.currentNoteId
         );
       }
     }
@@ -101,7 +102,6 @@ class Note extends Component {
   }
 
   removeNote = () => {
-    console.log(this.props.oldNote.owner)
     Meteor.call("notes.removeNote", `${this.state.currentNoteId}`, `${this.props.oldNote.owner}`);
   };
 

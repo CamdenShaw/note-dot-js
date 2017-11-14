@@ -60,7 +60,7 @@ class HeaderLeft extends Component {
   }
 
   componentDidMount() {
-    if(this.props.oldNote !== null) {
+    if(this.props.oldNote.owner !== null) {
       this.addTitle()
       this.addWeek()
       this.addTopic()

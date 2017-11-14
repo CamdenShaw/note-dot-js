@@ -27,7 +27,9 @@ Meteor.startup(() => {
       publish: true,
       createdOn: new Date(),
       owner: "none",
-      _id: "0"
+      _id: "0",
+      upVote: 2000,
+      upVoteBool: [{userId: "6", boolean: false}]
     });
   }
 });

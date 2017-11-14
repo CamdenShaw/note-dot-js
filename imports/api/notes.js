@@ -38,10 +38,12 @@ Meteor.methods({
       createdOn: new Date(),
       week: weekInput,
       publish: false,
-      topic: topicInput
+      topic: topicInput,
+      upVote: 0,
+      upVoteBool: [{userId: none, boolean: false}]
     });
   },
-  "notes.publishNote"(noteInput, titleInput, weekInput, topicInput) {
+  "notes.publishNote"(noteInput, titleInput, weekInput, topicInput, noteId) {
     if (!this.userId) {
       throw new Meteor.Error(
         "notes.publishNote.not-authorized",
@@ -49,7 +51,7 @@ Meteor.methods({
       );
     }
     Notes.update(
-      { _id: Notes._id },
+      { _id: noteId },
       {
         title: titleInput,
         content: noteInput,
@@ -57,7 +59,9 @@ Meteor.methods({
         createdOn: new Date(),
         week: weekInput,
         publish: true,
-        topic: topicInput
+        topic: topicInput,
+        upVote: 0,
+        upVoteBool: [{userId: this.userId, boolean: false}]
       },
       { upsert: true }
     );
@@ -71,5 +75,31 @@ Meteor.methods({
       );
     }
     Notes.remove({ _id: note }, 1);
+  },
+  "notes.upVote"(count, noteId) {
+    if (!this.userId){
+      throw new Meteor.Error(
+        "notes.upVote.note-authorized",
+        "You are not allowed to up vote notes if you're not logged in."
+      )
+    }
+    function hTMsCalc(hrs){
+      ms = hrs * 60 * 60 * 1000
+      return ms
+    }
+    Notes.update(
+      {_id: noteId},
+      { $set: {
+        upVote: count
+      }, $push: {
+        upVoteBool: 
+            {user: this.userId, boolean: true}
+      }}),
+    setTimeout(() => {Notes.update(
+      {_id: noteId,
+      upVoteBool: [{user: this.userId}]}, 
+      { $set: {
+        boolean: false
+      }})}, hTMsCalc(24))
   }
 });
