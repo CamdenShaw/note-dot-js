@@ -44,7 +44,6 @@ class NotesListContainer extends Component {
   //     this.profileList = this.props.notes
   //     this.notesList = this.props.publishedNotes
   //   }
-  //   console.log(this.profileList)
   // }
 
   componentDidUpdate() {

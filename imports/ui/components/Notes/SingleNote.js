@@ -40,15 +40,21 @@ class NoteCard extends Component {
   };
 
   setFilters() {
-    console.log(this.props)
-    console.log(this.props.filters.filterType, '===', null)
     if(this.props.filters.filterType !== null){
       let {filters, filterType} = this.props.filters
-      console.log(this.props.item[filterType], '===', filters)
       if (`${filters}` !== `${this.props.item[filterType]}`) {
-        document.querySelector('.card').style = "display: none"
+        document.querySelectorAll(`.${filters}`).forEach(card => {
+          card.style = "display: block"
+        })
       } else {
-        document.querySelector('.card').style = "display: block"
+        document.querySelectorAll(`.card`).forEach(card => {
+          card.style = "display: none"
+        })
+      }
+      if (filters === null) {
+        document.querySelectorAll(".card").forEach(card => {
+          card.style = "display: block"
+        })
       }
     }
   }
@@ -73,12 +79,13 @@ class NoteCard extends Component {
   }
 
   render() {
+    console.log(this.props)
     actions = [
       <FlatButton label="Close" primary={true} onClick={this.handleClose} />
     ];
     title = `${("render", this.props.item.title)}`;
     return (
-      <div className="card">
+      <div className={`card ${this.props.item.topic} ${this.props.item.week} ${this.props.item.userName}`}>
         <Card
           className="card2"
           onClick={() => {

@@ -20,7 +20,6 @@ class UpVoteButton extends Component {
     thisNote.upVote++
     this.setState({disabledBool: true})
     Meteor.call("notes.upVote", thisNote.upVote, thisNote._id)
-    console.log(thisNote, this.props.currentUserId)
   }
 
   setBoolState(thisNoteBool){
@@ -28,19 +27,14 @@ class UpVoteButton extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     if(this.props.notes) {
       thisNote = this.props.notes.find(note => {
         return note._id === this.props.oldNote
       })
-      console.log(this.props.notes)
-      console.log(thisNote.upVoteBool)
       thisNoteBool = thisNote.upVoteBool.find(upVoter => {
         return upVoter.user === this.props.currentUserId
       })
-      console.log(thisNoteBool)
       thisNoteBool && this.setBoolState(thisNoteBool)
-      console.log("this Note Bool", this.state)
     }
   }
   

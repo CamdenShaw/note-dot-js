@@ -30,7 +30,6 @@ class Home extends Component{
     }
     
     render(){
-        console.log(this.state)
         return (
             <div className="app-content" >
                 <Filters upVotes={this.upVotes} findFilters={this.findFilters} />

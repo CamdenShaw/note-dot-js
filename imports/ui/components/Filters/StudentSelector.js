@@ -33,11 +33,13 @@ class StudentSelector extends Component {
     return (
       <select className="student-select" onChange={this.onClick}>
         <option value="student" >Student</option>
-        {this.props.allUsers.map((user, index) => (
-          <option  key={index} className={`student-${index}`} value={user.emails[0].address}>
-            {user.emails[0].address}
-          </option>
-        ))}
+        {this.props.allUsers.map((user, index) => {
+          userName = user.emails[0].address.split('@')[0].replace('.', ' ')
+          return (<option  key={index} className={`student-${index}`} value={userName.replace(' ', '-')}>
+            {userName}
+          </option>)
+        })
+      }}
       </select>
     );
   }

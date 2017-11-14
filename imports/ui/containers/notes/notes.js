@@ -19,7 +19,8 @@ class Note extends Component {
       },
       currentNoteId: "",
       allUsers: "",
-      noteOwner: ""
+      noteOwner: "",
+      userName: ""
     };
     this.addNote = this.addNote.bind(this);
     this.removeNote = this.removeNote.bind(this);
@@ -61,7 +62,8 @@ class Note extends Component {
         this.state.editorValue,
         titleValue,
         weekValue,
-        topicValue
+        topicValue,
+        this.state.userName
       );
       currentNote = Notes.findOne(
         {},
@@ -91,11 +93,17 @@ class Note extends Component {
           titleValue,
           weekValue,
           topicValue,
-          this.state.currentNoteId
+          this.state.userName
         );
       }
     }
   };
+
+  setUserName = () => {
+    userName = this.props.currentEmail
+    userName = userName.split("@")[0].replace('.', '-')
+    this.setState({userName})
+  }
 
   componentWillMount() {
     this.props.thisUrl = window.location.href;
@@ -110,6 +118,7 @@ class Note extends Component {
   }
 
   componentDidMount() {
+    setTimeout(this.setUserName(), 1)
     if (this.props.oldNote) {
       this.setState({
         currentNoteId: this.props.oldNote._id
@@ -164,6 +173,7 @@ export default withTracker(() => {
   Meteor.subscribe("allUsers");
   return {
     currentUserId: Meteor.userId(),
+    currentEmail: Meteor.user().emails[0].address,
     notes: Notes.find({}).fetch(),
     allUsers: Meteor.users.find().fetch()
   };

@@ -11,7 +11,6 @@ class UpVoteSelector extends Component{
 
     onClick = () => {
         upVote = document.querySelector(".up-vote").checked
-        console.log(upVote)
         this.checkedBool(upVote)
     }
     

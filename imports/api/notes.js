@@ -10,7 +10,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  "notes.addNote"(noteInput, titleInput, weekInput, topicInput) {
+  "notes.addNote"(noteInput, titleInput, weekInput, topicInput, userName) {
     if (!this.userId) {
       throw new Meteor.Error(
         "notes.addNote.not-authorized",
@@ -21,15 +21,16 @@ Meteor.methods({
       title: titleInput,
       content: noteInput,
       owner: this.userId,
+      userName: userName,
       createdOn: new Date(),
       week: weekInput,
       publish: false,
       topic: topicInput,
       upVote: 0,
-      upVoteBool: [{userId: none, boolean: false}]
+      upVoteBool: [{userId: null, boolean: false}]
     });
   },
-  "notes.publishNote"(noteInput, titleInput, weekInput, topicInput) {
+  "notes.publishNote"(noteInput, titleInput, weekInput, topicInput, userName) {
     if (!this.userId) {
       throw new Meteor.Error(
         "notes.publishNote.not-authorized",
@@ -42,6 +43,7 @@ Meteor.methods({
         title: titleInput,
         content: noteInput,
         owner: this.userId,
+        userName: userName,
         createdOn: new Date(),
         week: weekInput,
         publish: true,
@@ -53,7 +55,6 @@ Meteor.methods({
     );
   },
   "notes.removeNote"(note, owner) {
-    console.log(owner)
     if (this.userId !== owner) {
       throw new Meteor.Error(
         "notes.removeNote.not-authorized",
