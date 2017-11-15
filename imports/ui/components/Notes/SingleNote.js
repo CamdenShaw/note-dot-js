@@ -42,20 +42,18 @@ class NoteCard extends Component {
   setFilters() {
     if(this.props.filters.filterType !== null){
       let {filters, filterType} = this.props.filters
-      if (`${filters}` !== `${this.props.item[filterType]}`) {
-        document.querySelectorAll(`.${filters}`).forEach(card => {
+      if(filters === filterType){
+        document.querySelectorAll('.card').forEach(card => {
           card.style = "display: block"
         })
-      } else {
-        document.querySelectorAll(`.card`).forEach(card => {
-          card.style = "display: none"
-        })
+        return
       }
-      if (filters === null) {
-        document.querySelectorAll(".card").forEach(card => {
-          card.style = "display: block"
-        })
-      }
+      document.querySelectorAll(`.card`).forEach(card => {
+        card.style = "display: none"
+      })
+      document.querySelectorAll(`.${filters}`).forEach(card => {
+        card.style = "display: block"
+      })
     }
   }
 
@@ -79,7 +77,6 @@ class NoteCard extends Component {
   }
 
   render() {
-    console.log(this.props)
     actions = [
       <FlatButton label="Close" primary={true} onClick={this.handleClose} />
     ];

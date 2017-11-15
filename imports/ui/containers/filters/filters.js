@@ -5,21 +5,35 @@ import { StudentSelector, TopicSelector, UpVotes, WeekSelector } from '../../com
 
 import './styles.css'
 
-document.addEventListener('DOMContentLoaded', () => {
-  let filters = document.querySelector('.filters')
-  window.addEventListener('scroll', () => {
-    if(window.scrollY >= 90 ) filters.style = `position: fixed; top: 12px;`
-    else filters.style = 'position: relative'
-  })
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//   let filters = document.querySelector('.filters')
+//   console.log(filters)
+//   window.addEventListener('scroll', () => {
+//     console.log(window.scrollY)
+//     if(window.scrollY >= 90 ) filters.style = `position: fixed; top: 12px;`
+//     else filters.style = 'position: relative'
+//   })
+// })
 
 class FiltersContainer extends Component {
   constructor(props) {
     super(props)
   }
 
-   add(){
-    let two = 1 + 1;
+  componentDidUpdate() {
+    this.changeFilterPosition()
+  }
+
+  changeFilterPosition = () => {
+    let filters = document.querySelector('.filters')
+    window.addEventListener('scroll', () => {
+      if(window.scrollY >= 90 ) filters.style = `position: fixed; top: 12px;`
+      else filters.style = 'position: relative'
+    })
+  }
+
+  componentDidMount() {
+    this.changeFilterPosition()
   }
 
   render() {

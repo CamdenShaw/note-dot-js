@@ -34,8 +34,8 @@ class Profile extends Component {
     this.props.thisUrl = window.location.href;
     return (
         <div className="app-content" >
-          <Filters upVotes={this.upVotes} findFilters={this.findFilters} />
-          <NoteListContainer filters={this.state} />
+          {this.upVotes && this.findFilters ? <Filters upVotes={this.upVotes} findFilters={this.findFilters} /> : <p>loading...</p>}
+          {this.state ? <NoteListContainer filters={this.state} /> : <p>loading...</p>}
         </div>
     );
   }

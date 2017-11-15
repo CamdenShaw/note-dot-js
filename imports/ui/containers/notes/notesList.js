@@ -11,53 +11,35 @@ import "./style.css";
 class NotesListContainer extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      sortedNotes: this.props.notes,
+      sortedPublishedNotes: this.props.publishedNotes
+    }
+  }
+  
+  checkBoolean() {
+    if(this.props.filters.upVotes === false){
+      this.setState({sortedNotes: this.props.upVotesNotes})
+      this.setState({sortedPublishedNotes: this.props.upVotesPublishedNotes})
+    } else if(this.state.sortedNotes !== this.props.notes ) {
+      this.setState({sortedNotes: this.props.notes})
+      this.setState({sortedPublishedNotes: this.props.publishedNotes})
+    }
   }
 
-  // filterNotes = () => {
-  //   let {filters, filterType, upVotes} = this.props.filters
-  //   if(filterType === "student"){
-  //     emails = []
-  //     this.props.users.forEach(user => (
-  //       emails.push(user.emails[0].address)
-  //     ))
-  //     this.notesList = this.props.publishedNotes.filter((item, key) => {
-  //       return item.owner === this.props.users[key]._id
-  //     })
-  //     this.profileList = this.props.notes.filter((item, key) => {
-  //       return item.owner === this.props.users[key]._id
-  //     })
-  //   } else if(filterType === "topic") {
-  //     this.notesList = this.props.publishedNotes.filter((item, key) => {
-  //       return item.topic === filters
-  //     })
-  //     this.profileList = this.props.notes.filter((item, key) => {
-  //       return item.topic === filters
-  //     })
-  //   } else if(filterType === "week") {
-  //     this.notesList = this.props.publishedNotes.filter((item, key) => {
-  //       return item.week === filters
-  //     })
-  //     this.profileList = this.props.notes.filter((item, key) => {
-  //       return item.week === filters
-  //     })
-  //   } else {
-  //     this.profileList = this.props.notes
-  //     this.notesList = this.props.publishedNotes
-  //   }
-  // }
+  shouldComponentUpdate(nextProps) {
+    console.log(nextProps)
+    return this.props.filters.upVotes !== nextProps.filters.upVotes
+  }
 
   componentDidUpdate() {
-    // this.filterNotes()
-  }
-
-  componentWillMount() {
-    let profileList = this.props.notes,
-        notesList = this.props.publishedNotes
+    this.checkBoolean()
   }
 
   componentDidMount() {
-    profileList = this.props.notes
-    notesList = this.props.publishedNotes
+    console.log('component did mount')
+    this.setState(this.state)
+    this.checkBoolean()
   }
 
   render() {
@@ -66,14 +48,14 @@ class NotesListContainer extends Component {
       <div className="cards-container">
         {/* <Note /> */}
         {window.location.href === "http://localhost:3000/profile" ? (
-          this.props.notes.map((note, index) => (
+          this.state.sortedNotes.map((note, index) => (
               <SingleNote filters={this.props.filters} className="card" key={index} item={note} />
           ))
         ) : (
-          this.props.publishedNotes.map((note, index) => (
-              <SingleNote filters={this.props.filters} className="card" key={index} item={note} />
-          ))
-        )}
+          this.state.sortedPublishedNotes.map((note, index) => {
+            return <SingleNote filters={this.props.filters} className="card" key={index} item={note} />
+          })
+        ) }
       </div>
     );
   }
@@ -86,9 +68,9 @@ export default withTracker(() => {
   Meteor.subscribe("allUsers")
 
   return {
-    users: Meteor.users.find().fetch(),
-    currentUserId: Meteor.userId(),
     notes: Notes.find({ owner: Meteor.userId() }, {sort: {createdOn: -1}}).fetch(),
-    publishedNotes: Notes.find({ publish: true }, {sort:{createdOn: -1}}).fetch()
+    publishedNotes: Notes.find({ publish: true }, {sort:{createdOn: -1}}).fetch(),
+    upVotesNotes: Notes.find({owner: Meteor.userId()},{sort: {upVote: -1}}).fetch(),
+    upVotesPublishedNotes: Notes.find({publish: true}, {sort: {upVote: -1}}).fetch()
   };
 })(NotesListContainer);
