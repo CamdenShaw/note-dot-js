@@ -4,8 +4,8 @@ import './styles.css'
 
 import HeaderContainer from "../../containers/header/header";
 import Filters from "../../containers/filters/"
-
-export const url = `http://localhost:3000`;
+/profile
+export const url = `https://note-dot-js.herokuapp.com`;
 const loginUrl = `${url}/login`;
 const noteUrl = `${url}/note`;
 

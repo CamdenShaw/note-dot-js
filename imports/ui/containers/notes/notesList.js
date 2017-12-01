@@ -47,7 +47,7 @@ class NotesListContainer extends Component {
       // Meteor.userId() ?
       <div className="cards-container">
         {/* <Note /> */}
-        {window.location.href === "http://localhost:3000/profile" ? (
+        {window.location.href === "https://note-dot-js.herokuapp.com/profile" ? (
           this.state.sortedNotes.map((note, index) => (
               <SingleNote filters={this.props.filters} className="card" key={index} item={note} />
           ))
